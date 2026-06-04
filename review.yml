@@ -1,0 +1,52 @@
+---
+name: University of Padua
+description: University of Padua public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/university-of-padua/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      The University of Padua has no single official developer portal, but its
+      Library System (SBA) provides several verifiable, live programmatic
+      surfaces. PHAIDRA offers a documented REST API with an OpenAPI definition,
+      a IIIF image service, and an OAI-PMH endpoint, all returning HTTP 200. The
+      EPrints-based Padua@Research and Research Data Unipd repositories expose
+      live OAI-PMH 2.0 endpoints. University-wide authentication runs on
+      Shibboleth/SAML SSO via the IDEM GARR federation (technical SP docs are
+      public). No central institutional GitHub organization exists for the
+      university as a whole; public code is in individual lab/department orgs, so
+      GitHub is omitted from common properties. No endpoints were fabricated; all
+      URLs below were probed live.
+    endpoints:
+      - url: https://www.unipd.it/en
+        status: 200
+        note: Official English-language website.
+      - url: https://biblio.unipd.it/en
+        status: 200
+        note: University Library System (SBA), owner of the repository/API surfaces.
+      - url: https://phaidra.cab.unipd.it/api/openapi
+        status: 200
+        note: PHAIDRA REST API OpenAPI definition (documentation).
+      - url: https://phaidra.cab.unipd.it/api/object/o:351999/index/dc
+        status: 200
+        note: PHAIDRA REST API object metadata endpoint; returns OAI Dublin Core XML.
+      - url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
+        status: 200
+        note: PHAIDRA OAI-PMH endpoint, responds to verb=Identify.
+      - url: https://paduaresearch.cab.unipd.it/cgi/oai2?verb=Identify
+        status: 200
+        note: Padua@Research EPrints OAI-PMH 2.0 endpoint (cert SAN mismatch on bare host, resolves via HTTPS).
+      - url: https://researchdata.cab.unipd.it/cgi/oai2?verb=Identify
+        status: 200
+        note: Research Data Unipd EPrints OAI-PMH 2.0; repositoryName "Research Data Unipd", protocolVersion 2.0.
+      - url: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
+        status: 200
+        note: Shibboleth/SAML SSO technical info for Service Providers (IDEM GARR federation).
+      - url: https://it.linkedin.com/school/university-of-padova/
+        status: 200
+        note: Official LinkedIn school page.
+      - url: https://phaidra.cab.unipd.it/api
+        status: 404
+        note: Bare /api path returns 404; documented surface is under /api/openapi and named routes.

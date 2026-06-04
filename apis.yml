@@ -1,0 +1,143 @@
+---
+aid: university-of-padua
+name: University of Padua
+description: >-
+  The University of Padua (Università degli Studi di Padova) is a public research
+  university in Padua, Italy, founded in 1222 and ranked #236 in the QS World
+  University Rankings 2025. Its public developer/API footprint is centered on the
+  University Library System (SBA) rather than a single official developer portal:
+  PHAIDRA, the digital-collections platform, exposes a documented REST API
+  (OpenAPI), a IIIF image service, and an OAI-PMH endpoint, while the EPrints-based
+  Padua@Research and Research Data Unipd repositories provide OAI-PMH metadata
+  harvesting. Authentication across university services is delivered through a
+  Shibboleth/SAML Single Sign-On integrated with the IDEM GARR federation and
+  eduGAIN. There is no central institutional GitHub organization for the
+  university as a whole; public code lives in individual lab and department orgs.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/university-of-padua/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Open Data
+  - Research Data
+  - Library
+  - Repository
+  - Italy
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: university-of-padua:phaidra
+    name: PHAIDRA Digital Collections REST API
+    description: >-
+      PHAIDRA is the University of Padua Library System's platform for the
+      management, consultation, and long-term archiving of digital objects and
+      collections (images, texts, books, videos). It exposes a documented REST
+      API (Mojolicious/Perl) described by an OpenAPI definition, including object
+      metadata endpoints such as /api/object/{pid}/index/dc. Verified live at
+      time of review.
+    humanURL: https://phaidra.cab.unipd.it/
+    baseURL: https://phaidra.cab.unipd.it/api
+    tags: [ Library, Digital Collections, REST, OpenAPI, Repository ]
+    properties:
+      - type: Documentation
+        url: https://phaidra.cab.unipd.it/api/openapi
+      - type: OpenAPI
+        url: https://phaidra.cab.unipd.it/api/openapi
+  - aid: university-of-padua:phaidra-iiif
+    name: PHAIDRA IIIF Image API
+    description: >-
+      PHAIDRA serves digital images through an IIIF (International Image
+      Interoperability Framework) image server, enabling standards-based deep
+      zoom and image delivery for the university's digital collections.
+    humanURL: https://phaidra.cab.unipd.it/
+    baseURL: https://phaidra.cab.unipd.it/api/imageserver
+    tags: [ IIIF, Images, Library, Digital Collections ]
+    properties:
+      - type: Documentation
+        url: https://phaidra.cab.unipd.it/api/openapi
+  - aid: university-of-padua:phaidra-oai
+    name: PHAIDRA OAI-PMH
+    description: >-
+      OAI-PMH metadata harvesting endpoint for the PHAIDRA digital collections,
+      allowing programmatic harvesting of Dublin Core and related metadata.
+      Verified live (verb=Identify returns HTTP 200) at time of review.
+    humanURL: https://phaidra.cab.unipd.it/
+    baseURL: https://phaidra.cab.unipd.it/api/oai
+    tags: [ OAI-PMH, Metadata, Library, Repository ]
+    properties:
+      - type: Documentation
+        url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
+      - type: OAI-PMH
+        url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
+  - aid: university-of-padua:padua-research-oai
+    name: Padua@Research OAI-PMH
+    description: >-
+      Padua@Research (Padua Research Archive) is an EPrints-based institutional
+      repository of the University of Padua's scientific production. It exposes an
+      OAI-PMH 2.0 metadata harvesting interface; full text of some items is
+      restricted to registered users. Verified live at time of review.
+    humanURL: https://paduaresearch.cab.unipd.it/
+    baseURL: https://paduaresearch.cab.unipd.it/cgi/oai2
+    tags: [ OAI-PMH, Repository, EPrints, Research, Library ]
+    properties:
+      - type: Documentation
+        url: https://paduaresearch.cab.unipd.it/
+      - type: OAI-PMH
+        url: https://paduaresearch.cab.unipd.it/cgi/oai2?verb=Identify
+  - aid: university-of-padua:researchdata-oai
+    name: Research Data Unipd OAI-PMH
+    description: >-
+      Research Data Unipd is the EPrints-based research-data archive of the
+      University of Padua, supporting data discovery, sharing, and reuse using
+      DataCite and Dublin Core metadata. It is an OpenAIRE content provider and is
+      registered in re3data, OpenDOAR, and FAIRsharing. Exposes an OAI-PMH 2.0
+      endpoint (repositoryName "Research Data Unipd"), verified live at time of
+      review.
+    humanURL: https://researchdata.cab.unipd.it/
+    baseURL: https://researchdata.cab.unipd.it/cgi/oai2
+    tags: [ OAI-PMH, Research Data, EPrints, Repository, Library ]
+    properties:
+      - type: Documentation
+        url: https://researchdata.cab.unipd.it/
+      - type: OAI-PMH
+        url: https://researchdata.cab.unipd.it/cgi/oai2?verb=Identify
+  - aid: university-of-padua:sso
+    name: Single Sign-On (Shibboleth/SAML)
+    description: >-
+      The University of Padua provides centralized authentication via a
+      Shibboleth-based Single Sign-On, integrated with the IDEM GARR federation
+      and eduGAIN. Service Provider integration and SAML metadata parameters are
+      documented for technical staff; this is institutional federated identity
+      infrastructure, not a self-service public API.
+    humanURL: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
+    tags: [ Authentication, SSO, SAML, Shibboleth, Identity ]
+    properties:
+      - type: Documentation
+        url: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
+      - type: Authentication
+        url: https://registrazionisp.ict.unipd.it/
+common:
+  - type: Website
+    url: https://www.unipd.it/en
+  - type: Library
+    url: https://biblio.unipd.it/en
+  - type: LinkedIn
+    url: https://it.linkedin.com/school/university-of-padova/
+  - type: Authentication
+    url: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
+  - type: Plans
+    url: plans/university-of-padua-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/university-of-padua-rate-limits.yml
+  - type: FinOps
+    url: finops/university-of-padua-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
