@@ -1,0 +1,48 @@
+formats:
+  - oas3
+
+extends:
+  - spectral:oas
+
+rules:
+
+  padua-info-license:
+    description: PHAIDRA API info should carry a license (the published spec declares Apache 2.0).
+    given: $.info
+    severity: warn
+    then:
+      field: license
+      function: truthy
+
+  padua-servers-https:
+    description: Servers must use the HTTPS PHAIDRA endpoint.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  padua-object-paths-use-pid:
+    description: Object-scoped paths are addressed by a persistent identifier named {pid}.
+    given: $.paths[?(@property.match(/^\/object\/\{/))]~
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\{pid\\}"
+
+  padua-operations-have-responses:
+    description: Every operation must define at least one response.
+    given: $.paths[*][get,post,put,delete,patch].responses
+    severity: error
+    then:
+      function: truthy
+
+  padua-operations-tagged:
+    description: Operations should be grouped with one of the PHAIDRA tags.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: warn
+    then:
+      field: tags
+      function: truthy

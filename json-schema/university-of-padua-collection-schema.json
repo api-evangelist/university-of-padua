@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phaidra.unipd.it/schema/collection.json",
+  "title": "PHAIDRA Collection",
+  "description": "Indexed metadata for a PHAIDRA collection object, as returned under the 'root' key by collection endpoints.",
+  "type": "object",
+  "properties": {
+    "_updated": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "_version_": {
+      "type": "number"
+    },
+    "bib_ir": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bib_roles_pers_aut": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "children": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cmodel": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "datastreams": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_creator": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_description": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_description_eng": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_identifier": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_language": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_title": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_title_eng": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_type": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_type_eng": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ispartof": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "pid": {
+      "type": "string"
+    },
+    "resourcetype": {
+      "type": "string"
+    },
+    "size": {
+      "type": "number"
+    },
+    "sort_dc_title": {
+      "type": "string"
+    },
+    "sort_eng_dc_title": {
+      "type": "string"
+    },
+    "tcreated": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tsize": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "uwm_roles_json": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  }
+}

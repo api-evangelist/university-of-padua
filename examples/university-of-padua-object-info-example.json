@@ -1,0 +1,54 @@
+{
+  "alerts": [],
+  "status": 200,
+  "info": {
+    "pid": "o:12345",
+    "cmodel": "Picture",
+    "created": "2020-05-01T10:00:00Z",
+    "_updated": [
+      "2021-03-12T09:30:00Z"
+    ],
+    "_version_": 1699999999999,
+    "datastreams": [
+      "OCTETS",
+      "MODS",
+      "DC",
+      "THUMBNAIL"
+    ],
+    "dc_title": [
+      "Veduta di Padova"
+    ],
+    "dc_creator": [
+      "Rossi, Mario"
+    ],
+    "dc_description": [
+      "Historical photograph from the University of Padua collection."
+    ],
+    "dc_identifier": [
+      "o:12345",
+      "hdl:11577/12345"
+    ],
+    "dc_date": [
+      "1950"
+    ],
+    "dc_language": [
+      "ita"
+    ],
+    "dc_license": [
+      "http://creativecommons.org/licenses/by/4.0/"
+    ],
+    "dc_publisher": [
+      "Universita degli Studi di Padova"
+    ],
+    "dc_subject": [
+      "Padova",
+      "Architettura"
+    ],
+    "dc_rights": [
+      "public"
+    ],
+    "ispartof": [
+      "o:11111"
+    ]
+  }
+}

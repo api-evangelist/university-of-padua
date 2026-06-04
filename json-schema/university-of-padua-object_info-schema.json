@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phaidra.unipd.it/schema/object_info.json",
+  "title": "PHAIDRA Object Info",
+  "description": "Indexed metadata about a PHAIDRA digital object (Dublin Core + bibliographic fields), as returned by /object/{pid}/info and /object/{pid}/index.",
+  "type": "object",
+  "properties": {
+    "_updated": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "_version_": {
+      "type": "number"
+    },
+    "alternativeformats": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "alternativeversions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bbox": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bib_published": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bib_publisher": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bib_publisherlocation": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bib_roles_pers_aut": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cmodel": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "datastreams": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_creator": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_date": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_description": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_description_": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_identifier": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_language": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_license": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_publisher": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_relation": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_rights": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_subject": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_subject_": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dc_title": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dshash": {
+      "type": "object"
+    },
+    "ispartof": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "latlon": {
+      "type": "string"
+    },
+    "metadata": {
+      "properties": {
+        "geo": {
+          "$ref": "#/components/schemas/geo"
+        },
+        "mods": {
+          "$ref": "#/components/schemas/mods"
+        }
+      },
+      "type": "object"
+    },
+    "metatags": {
+      "properties": {
+        "DC.identifier": {
+          "type": "string"
+        },
+        "DC.rights": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

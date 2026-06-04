@@ -1,0 +1,73 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "phaidra": "https://phaidra.unipd.it/vocab#",
+
+    "University": {
+      "@id": "schema:CollegeOrUniversity"
+    },
+    "name": "schema:name",
+    "url": "schema:url",
+    "founder": "schema:foundingDate",
+
+    "DigitalObject": {
+      "@id": "phaidra:Object",
+      "@type": "schema:CreativeWork"
+    },
+    "pid": {
+      "@id": "schema:identifier"
+    },
+    "cmodel": {
+      "@id": "phaidra:contentModel"
+    },
+    "title": {
+      "@id": "dc:title"
+    },
+    "creator": {
+      "@id": "dc:creator"
+    },
+    "description": {
+      "@id": "dc:description"
+    },
+    "identifier": {
+      "@id": "dc:identifier"
+    },
+    "date": {
+      "@id": "dc:date"
+    },
+    "language": {
+      "@id": "dc:language"
+    },
+    "publisher": {
+      "@id": "dc:publisher"
+    },
+    "subject": {
+      "@id": "dc:subject"
+    },
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "rights": {
+      "@id": "dc:rights"
+    },
+
+    "Collection": {
+      "@id": "phaidra:Collection",
+      "@type": "schema:Collection"
+    },
+    "isPartOf": {
+      "@id": "dcterms:isPartOf",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "dcterms:hasPart",
+      "@type": "@id"
+    }
+  },
+  "@type": "University",
+  "name": "University of Padua",
+  "url": "https://www.unipd.it/en"
+}

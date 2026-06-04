@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://phaidra.unipd.it/structure/object_info.json",
+  "name": "PhaidraObjectInfo",
+  "description": "JSON Structure for a PHAIDRA digital object's indexed metadata.",
+  "type": "object",
+  "properties": {
+    "cmodel": {
+      "type": "string",
+      "description": "Content model (e.g. Picture, Document, Collection)."
+    },
+    "created": {
+      "type": "string",
+      "description": "Creation timestamp."
+    },
+    "_updated": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Update timestamps."
+    },
+    "_version_": {
+      "type": "number",
+      "description": "Solr index version."
+    },
+    "datastreams": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Available datastream identifiers."
+    },
+    "dc_title": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core title."
+    },
+    "dc_creator": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core creator."
+    },
+    "dc_description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core description."
+    },
+    "dc_identifier": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core identifier."
+    },
+    "dc_date": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core date."
+    },
+    "dc_language": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core language."
+    },
+    "dc_license": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "License of the object."
+    },
+    "dc_publisher": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core publisher."
+    },
+    "dc_relation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core relation."
+    },
+    "dc_rights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core rights."
+    },
+    "dc_subject": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dublin Core subject."
+    },
+    "ispartof": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "PIDs of parent collections/containers this object is part of."
+    },
+    "latlon": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Geographic coordinates, if any."
+    }
+  },
+  "required": [
+    "cmodel"
+  ]
+}

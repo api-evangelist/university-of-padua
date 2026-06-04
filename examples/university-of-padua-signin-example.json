@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://phaidra.unipd.it/api/signin",
+    "headers": {
+      "Authorization": "Basic <base64(username:password)>"
+    }
+  },
+  "response": {
+    "alerts": [],
+    "status": 200,
+    "XSRF-TOKEN": "<session-token>"
+  }
+}

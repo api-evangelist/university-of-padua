@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://phaidra.unipd.it/api/search/select",
+    "query": {
+      "q": "dc.title:Padova",
+      "rows": 2,
+      "wt": "json"
+    }
+  },
+  "response": {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 12
+    },
+    "response": {
+      "numFound": 1,
+      "start": 0,
+      "docs": [
+        {
+          "pid": "o:12345",
+          "cmodel": "Picture",
+          "dc_title": [
+            "Veduta di Padova"
+          ],
+          "dc_creator": [
+            "Rossi, Mario"
+          ]
+        }
+      ]
+    }
+  }
+}

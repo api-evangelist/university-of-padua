@@ -1,0 +1,83 @@
+vocabulary:
+  name: PHAIDRA API Vocabulary
+  description: >-
+    Controlled vocabulary of the core terms used by the University of Padua
+    PHAIDRA digital collections REST API, derived from its published OpenAPI 3.0
+    definition. Covers digital objects, content models, metadata datastreams,
+    collections, and related repository concepts.
+  version: "3.0"
+  terms:
+    - term: PHAIDRA
+      definition: >-
+        Permanent Hosting, Archiving and Indexing of Digital Resources and Assets;
+        the University of Padua Library System platform for managing, consulting,
+        and long-term archiving digital objects.
+      tags: [platform, repository]
+    - term: pid
+      definition: >-
+        Persistent identifier of a digital object (e.g. o:12345), used to address
+        object-scoped API endpoints.
+      tags: [identifier, object]
+    - term: object
+      definition: A single digital resource managed by PHAIDRA (image, document, audio, video, etc.).
+      tags: [object, core]
+    - term: cmodel
+      definition: >-
+        Content model classifying an object (Picture, Document, Audio, Video,
+        Collection, Container, Page, Resource, Unknown), determining its behavior
+        and available datastreams.
+      tags: [object, classification]
+    - term: collection
+      definition: An ordered grouping of member objects, itself a digital object with a content model of Collection.
+      tags: [collection, structure]
+    - term: container
+      definition: An object that holds ordered members, used to model compound or multi-part resources.
+      tags: [container, structure]
+    - term: datastream
+      definition: >-
+        A named content or metadata stream attached to an object (e.g. OCTETS,
+        DC, MODS, THUMBNAIL).
+      tags: [datastream, metadata]
+    - term: DC
+      definition: Dublin Core metadata datastream/index for an object (oai_dc XML, dc_* indexed fields).
+      tags: [metadata, dublin-core]
+    - term: MODS
+      definition: Metadata Object Description Schema metadata datastream supported for bibliographic description.
+      tags: [metadata, mods]
+    - term: UWMETADATA
+      definition: PHAIDRA's native University of Vienna metadata schema datastream.
+      tags: [metadata, uwmetadata]
+    - term: JSON-LD
+      definition: Linked-data metadata representation of an object available via the jsonld endpoints.
+      tags: [metadata, linked-data]
+    - term: DataCite
+      definition: DataCite metadata representation of an object, used for research-data and DOI description.
+      tags: [metadata, datacite]
+    - term: IIIF manifest
+      definition: >-
+        International Image Interoperability Framework manifest describing an
+        object's images for standards-based viewing and deep zoom.
+      tags: [iiif, images]
+    - term: imageserver
+      definition: PHAIDRA's IIIF image-processing service that generates and serves image derivatives.
+      tags: [iiif, images, service]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting endpoint for
+        bulk harvesting of object metadata.
+      tags: [harvesting, interoperability]
+    - term: search/select
+      definition: Solr-backed search endpoint returning indexed object documents matching a query.
+      tags: [search, solr]
+    - term: vocabulary
+      definition: Controlled-vocabulary and taxonomy terms service backing metadata fields.
+      tags: [vocabulary, terms]
+    - term: rights
+      definition: Access-rights metadata controlling who may view or download an object or datastream.
+      tags: [rights, authorization]
+    - term: termsofuse
+      definition: Terms-of-use agreement that users accept before downloading restricted content.
+      tags: [rights, agreement]
+    - term: signin
+      definition: Session authentication endpoint establishing a PHAIDRA session token.
+      tags: [session, authentication]

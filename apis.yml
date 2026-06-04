@@ -48,6 +48,16 @@ apis:
         url: https://phaidra.cab.unipd.it/api/openapi
       - type: OpenAPI
         url: https://phaidra.cab.unipd.it/api/openapi
+      - type: OpenAPI
+        url: openapi/university-of-padua-phaidra.yaml
+      - type: JSONSchema
+        url: json-schema/university-of-padua-object_info-schema.json
+      - type: Vocabulary
+        url: vocabulary/university-of-padua-vocabulary.yml
+      - type: Rules
+        url: rules/university-of-padua-rules.yml
+      - type: x-json-ld
+        url: json-ld/university-of-padua-context.jsonld
   - aid: university-of-padua:phaidra-iiif
     name: PHAIDRA IIIF Image API
     description: >-
