@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/university-of-padua-phaidra.yaml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/university-of-padua-phaidra.yaml
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: X-XSRF-TOKEN
+  sources:
+  - openapi/university-of-padua-phaidra.yaml

@@ -132,6 +132,10 @@ apis:
       - type: Authentication
         url: https://registrazionisp.ict.unipd.it/
 common:
+  - type: DomainSecurity
+    url: security/university-of-padua-domain-security.yml
+  - type: Authentication
+    url: authentication/university-of-padua-authentication.yml
   - type: Website
     url: https://www.unipd.it/en
   - type: Library
