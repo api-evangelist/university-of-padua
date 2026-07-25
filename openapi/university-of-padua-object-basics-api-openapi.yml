@@ -1,0 +1,1291 @@
+openapi: 3.0.2
+info:
+  description: Documentation of the PHAIDRA API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: PHAIDRA datastream object-basics API
+  version: '3.0'
+servers:
+- description: API endpoint
+  url: https://phaidra.unipd.it/api
+tags:
+- description: Most important requests you'll need to manage digital objects in PHAIDRA
+  name: object-basics
+paths:
+  /audio/create:
+    post:
+      description: Creates a simple data object with internal content model cmodel:Audio. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  required: true
+                  type: string
+                metadata:
+                  description: a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details
+                  properties:
+                    metadata:
+                      properties:
+                        json-ld:
+                          $ref: '#/components/schemas/json-ld'
+                      type: object
+                  type: object
+                mimetype:
+                  description: 'mimetype is optional: if not provided, heuristics is used on server side'
+                  example: application/json
+                  required: false
+                  type: string
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: number
+                type: object
+          description: Audio object created
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: error creating object
+      security:
+      - basicAuth: []
+      summary: Creates an audio object
+      tags:
+      - object-basics
+  /collection/create:
+    post:
+      description: Use to create collection object. The process is the same as for other simple objects (e.g. picture/create), just don't provide any file parameter.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                metadata:
+                  description: a structure containing metadata; refer to the wiki (see above) for further details. You can send members - as in the example, or not, and add members later using either the collection/{pid}/members/add request, or the relationships requests with the hasMember relationship.
+                  properties:
+                    metadata:
+                      properties:
+                        json-ld:
+                          $ref: '#/components/schemas/json-ld'
+                        members:
+                          $ref: '#/components/schemas/members'
+                      type: object
+                  type: object
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: string
+                type: object
+          description: collection created
+      security:
+      - basicAuth: []
+      summary: Creates a collection
+      tags:
+      - object-basics
+  /container/create:
+    post:
+      description: See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-container) for an example.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              description: JSON metadata example (see [creating a container example](https://github.com/phaidra/phaidra-api/wiki/Creating-a-container))
+              properties:
+                member_bar:
+                  format: binary
+                  type: string
+                member_foo:
+                  format: binary
+                  type: string
+                metadata:
+                  $ref: '#/components/schemas/container_with_members'
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: number
+                type: object
+          description: Container created
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: error creating container
+      security:
+      - basicAuth: []
+      summary: Creates a container object
+      tags:
+      - object-basics
+  /document/create:
+    post:
+      description: Creates a simple data object with internal content model cmodel:PDFDocument. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  required: true
+                  type: string
+                metadata:
+                  description: a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details
+                  properties:
+                    metadata:
+                      properties:
+                        json-ld:
+                          $ref: '#/components/schemas/json-ld'
+                      type: object
+                  type: object
+                mimetype:
+                  description: 'mimetype is optional: if not provided, heuristics is used on server side'
+                  example: application/json
+                  required: false
+                  type: string
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: number
+                type: object
+          description: Document object created
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: error creating object
+      security:
+      - basicAuth: []
+      summary: Creates a document object
+      tags:
+      - object-basics
+  /object/{pid}/delete:
+    post:
+      description: This method permanently deletes the object from the repository. In case Fedora 6+ is the backend repository, a tombstone will be created in object's place.
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  status:
+                    type: integer
+                type: object
+          description: status of delete request
+      security:
+      - basicAuth: []
+      summary: Delete object.
+      tags:
+      - object-basics
+  /object/{pid}/download:
+    get:
+      description: 'Receive data as Content-Disposition: attachment. Use this link if you want the browser to download a file.'
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Object's data
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Download object's data
+      tags:
+      - object-basics
+  /object/{pid}/get:
+    get:
+      description: Receive data as a stream. Use this link if you want to embed the data, e.g. in a player/viewer.
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Object's data
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Get object's data
+      tags:
+      - object-basics
+  /object/{pid}/index:
+    post:
+      description: Triggers the update of the object's index (Solr). Need admin authentication
+      parameters:
+      - description: object id
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      - description: ignore object status, i.e. include inactive objects
+        in: path
+        name: ignorestatus
+        schema:
+          required: false
+          type: boolean
+      - description: skip re-indexing of the parent object
+        in: path
+        name: norecursion
+        schema:
+          required: false
+          type: boolean
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object indexed
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Failed to fetch data
+      security:
+      - basicAuth: []
+      summary: Re-indexes object.
+      tags:
+      - object-basics
+  /object/{pid}/info:
+    get:
+      description: This method returns metadata (UWMETADATA, MODS, JSON-LD, etc., depending on the metadata datastream), as well as indexed data about the object and its related objects. It's the primary method of getting as much information about an object as possible.
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  info:
+                    $ref: '#/components/schemas/object_info'
+                  status:
+                    type: number
+                type: object
+          description: object info
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Get object info
+      tags:
+      - object-basics
+  /object/{pid}/metadata:
+    post:
+      description: 'Supported elements (in JSON format) are: json-ld, json-ld-private, mods, uwmetadata, rights, geo, members, membersorder and relationships.'
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                metadata:
+                  oneOf:
+                    $ref: '#/components/schemas/json-ld'
+              type: object
+        description: Object metadata
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: number
+                type: object
+          description: metadata added
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: error
+      security:
+      - basicAuth: []
+      summary: Edit object's metadata
+      tags:
+      - object-basics
+  /object/{pid}/preview:
+    get:
+      description: Retrieves the preview page, for example for embedding in an iframe. Image viewer for supported image formats, PDF viewer for PDFs, audio/video player for media, etc.
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          content:
+            text/html:
+              schema:
+                type: string
+          description: html page preview
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Get preview page
+      tags:
+      - object-basics
+  /object/{pid}/rights:
+    get:
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  rights:
+                    properties:
+                      metadata:
+                        properties:
+                          username:
+                            items:
+                              properties:
+                                expires:
+                                  type: string
+                                value:
+                                  type: string
+                              type: object
+                            type: array
+                        type: object
+                    type: object
+                  status:
+                    type: number
+                type: object
+          description: Access rights
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Retrieves the object access restrictions. This method expects authentication.
+      tags:
+      - object-basics
+    post:
+      description: Leave the rights empty (rights:{}) to remove restrictions from object.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                metadata:
+                  description: Example of user rights.
+                  properties:
+                    rights:
+                      $ref: '#/components/schemas/rights'
+                  type: object
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  status:
+                    type: string
+                type: object
+          description: ''
+      security:
+      - basicAuth: []
+      summary: Saves the object's access restrictions
+      tags:
+      - object-basics
+  /object/{pid}/thumbnail:
+    get:
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Thumbnail image in jpeg or png format
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Get the thumbnail image
+      tags:
+      - object-basics
+  /picture/create:
+    responses:
+      '200':
+        content:
+          application/json:
+            schema:
+              properties:
+                alerts:
+                  items:
+                    properties:
+                      msg:
+                        type: string
+                      type:
+                        type: string
+                    type: object
+                  type: array
+                pid:
+                  type: string
+                status:
+                  type: number
+              type: object
+        description: Picture object created
+      '404':
+        content:
+          application/json:
+            schema:
+              type: object
+        description: error creating object
+    post:
+      description: Creates a simple data object with internal content model cmodel:Picture. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  required: true
+                  type: string
+                metadata:
+                  description: a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details
+                  properties:
+                    metadata:
+                      properties:
+                        json-ld:
+                          $ref: '#/components/schemas/json-ld'
+                      type: object
+                  type: object
+                mimetype:
+                  description: 'mimetype is optional: if not provided, heuristics is used on server side'
+                  example: application/json
+                  required: false
+                  type: string
+              type: object
+      security:
+      - basicAuth: []
+      summary: Creates a picture object
+      tags:
+      - object-basics
+  /unknown/create:
+    post:
+      description: Creates a simple data object with internal content model cmodel:Asset. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  required: true
+                  type: string
+                metadata:
+                  description: a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details
+                  properties:
+                    metadata:
+                      properties:
+                        json-ld:
+                          $ref: '#/components/schemas/json-ld'
+                      type: object
+                  type: object
+                mimetype:
+                  description: 'mimetype is optional: if not provided, heuristics is used on server side'
+                  example: application/json
+                  required: false
+                  type: string
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: number
+                type: object
+          description: Data object created
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: error creating object
+      security:
+      - basicAuth: []
+      summary: Creates a data object
+      tags:
+      - object-basics
+  /video/create:
+    post:
+      description: Creates a simple data object with internal content model cmodel:Video. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  required: true
+                  type: string
+                metadata:
+                  description: a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details
+                  properties:
+                    metadata:
+                      properties:
+                        json-ld:
+                          $ref: '#/components/schemas/json-ld'
+                      type: object
+                  type: object
+                mimetype:
+                  description: 'mimetype is optional: if not provided, heuristics is used on server side'
+                  example: application/json
+                  required: false
+                  type: string
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  pid:
+                    type: string
+                  status:
+                    type: number
+                type: object
+          description: Video object created
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: error creating object
+      security:
+      - basicAuth: []
+      summary: Creates a video object
+      tags:
+      - object-basics
+components:
+  schemas:
+    json-ld:
+      example:
+        dce:title:
+        - '@type': bf:Title
+          bf:mainTitle:
+          - '@language': deu
+            '@value': Title
+        edm:rights:
+        - https://rightsstatements.org/page/InC/1.0/
+        role:aut:
+        - '@type': schema:Person
+          schema:familyName:
+          - '@value': Last Name
+          schema:givenName:
+          - '@value': First name
+      properties:
+        bf:note:
+          items:
+            properties:
+              '@type':
+                type: string
+              skos:prefLabel:
+                items:
+                  properties:
+                    '@language':
+                      type: string
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+        dce:subject:
+          items:
+            properties:
+              '@type':
+                type: string
+              skos:prefLabel:
+                items:
+                  properties:
+                    '@language':
+                      type: string
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+        dce:title:
+          items:
+            properties:
+              '@type':
+                type: string
+              bf:mainTitle:
+                items:
+                  properties:
+                    '@language':
+                      type: string
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+        dcterms:language:
+          items:
+            type: string
+          type: array
+        dcterms:type:
+          items:
+            properties:
+              '@type':
+                type: string
+              skos:exactMatch:
+                items:
+                  type: string
+                type: array
+              skos:prefLabel:
+                items:
+                  properties:
+                    '@language':
+                      type: string
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+        ebucore:filename:
+          items:
+            type: string
+          type: array
+        ebucore:hasMimeType:
+          items:
+            type: string
+          type: array
+        edm:hasType:
+          items:
+            properties:
+              '@type':
+                type: string
+              skos:exactMatch:
+                items:
+                  type: string
+                type: array
+              skos:prefLabel:
+                items:
+                  properties:
+                    '@language':
+                      type: string
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+        edm:rights:
+          items:
+            type: string
+          type: array
+        role:aut:
+          items:
+            properties:
+              '@type':
+                type: string
+              schema:familyName:
+                items:
+                  properties:
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+              schema:givenName:
+                items:
+                  properties:
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+        vra:hasInscription:
+          items:
+            properties:
+              '@type':
+                type: string
+              skos:prefLabel:
+                items:
+                  properties:
+                    '@language':
+                      type: string
+                    '@value':
+                      type: string
+                  type: object
+                type: array
+            type: object
+          type: array
+      type: object
+    mods:
+      properties:
+        metadata:
+          properties:
+            mods:
+              example:
+              - attributes:
+                - input_type: select
+                  label: Type
+                  ui_value: ac-number
+                  xmlname: type
+                - input_type: input_text
+                  label: Language
+                  xmlname: lang
+                - input_type: input_text
+                  label: Script
+                  xmlname: script
+                - input_type: input_text
+                  label: Transliteration
+                  xmlname: transliteration
+                - input_type: input_text
+                  label: Type URI
+                  xmlname: typeURI
+                - input_type: input_text
+                  label: Display label
+                  xmlname: displayLabel
+                - input_type: select
+                  label: Invalid
+                  xmlname: invalid
+                - input_type: input_text
+                  label: Alternative representation group
+                  xmlname: altRepGroup
+                input_type: input_text
+                label: Identifier
+                ui_value: AC04090285
+                xmlname: identifier
+              - attributes:
+                - input_type: input_text
+                  label: Object part
+                  xmlname: objectPart
+                - input_type: input_text
+                  label: Language
+                  xmlname: lang
+                - input_type: input_text
+                  label: Script
+                  xmlname: script
+                - input_type: input_text
+                  label: Transliteration
+                  xmlname: transliteration
+                - input_type: input_text
+                  label: Display label
+                  xmlname: displayLabel
+                - input_type: select
+                  label: Usage
+                  xmlname: usage
+                - input_type: input_text
+                  label: Alternative representation group
+                  xmlname: altRepGroup
+                children:
+                - attributes:
+                  - input_type: select
+                    label: Type
+                    ui_value: code
+                    xmlname: type
+                  - input_type: select
+                    label: Authority
+                    ui_value: iso639-2b
+                    xmlname: authority
+                  - input_type: input_text
+                    label: Authority URI
+                    xmlname: authorityURI
+                  - input_type: input_text
+                    label: Value URI
+                    xmlname: valueURI
+                  - input_type: input_text
+                    label: Language
+                    xmlname: lang
+                  - input_type: input_text
+                    label: Script
+                    xmlname: script
+                  - input_type: input_text
+                    label: Transliteration
+                    xmlname: transliteration
+                  input_type: input_text
+                  label: Language term
+                  ui_value: ger
+                  xmlname: languageTerm
+                input_type: node
+                label: Language
+                xmlname: language
+              items:
+                properties:
+                  attributes:
+                    items:
+                      properties:
+                        input_type:
+                          type: string
+                        label:
+                          type: string
+                        ui_value:
+                          type: string
+                        xmlname:
+                          type: string
+                      type: object
+                    type: array
+                  children:
+                    items:
+                      type: object
+                    type: array
+                  extensible:
+                    type: number
+                  input_type:
+                    type: string
+                  label:
+                    type: string
+                  ui_value:
+                    type: string
+                  xmlname:
+                    type: string
+                type: object
+              type: array
+          type: object
+      type: object
+    members:
+      example:
+      - pid: o:1
+        pos: 1
+      - pid: o:2
+        pos: 2
+      items:
+        properties:
+          pid:
+            type: string
+          pos:
+            type: string
+        type: object
+      type: array
+    container_with_members:
+      example:
+        metadata:
+          json-ld:
+            container:
+              dce:title:
+              - '@type': bf:Title
+                bf:mainTitle:
+                - '@language': eng
+                  '@value': Example container title
+              dcterms:type:
+              - '@type': skos:Concept
+                skos:exactMatch:
+                - https://pid.phaidra.org/vocabulary/8MY0-BQDQ
+                skos:prefLabel:
+                - '@language': eng
+                  '@value': container
+              edm:hasType:
+              - '@type': skos:Concept
+                skos:exactMatch:
+                - https://pid.phaidra.org/vocabulary/8KGA-CH97
+                skos:prefLabel:
+                - '@language': eng
+                  '@value': interview
+            member_bar:
+              dce:title:
+              - '@type': bf:Title
+                bf:mainTitle:
+                - '@language': eng
+                  '@value': Member 'bar' title
+              dcterms:type:
+              - '@type': skos:Concept
+                skos:exactMatch:
+                - https://pid.phaidra.org/vocabulary/8YB5-1M0J
+                skos:prefLabel:
+                - '@language': eng
+                  '@value': sound
+              ebucore:filename:
+              - test.wav
+              ebucore:hasMimeType:
+              - audio/wav
+              edm:rights:
+              - http://rightsstatements.org/vocab/InC/1.0/
+              schema:duration:
+              - PTOH1M30S
+            member_foo:
+              dce:title:
+              - '@type': bf:Title
+                bf:mainTitle:
+                - '@language': deu
+                  '@value': member 'foo' title
+              dcterms:type:
+              - '@type': skos:Concept
+                skos:exactMatch:
+                - https://pid.phaidra.org/vocabulary/8YB5-1M0J
+                skos:prefLabel:
+                - '@language': eng
+                  '@value': sound
+              ebucore:filename:
+              - test2.wav
+              ebucore:hasMimeType:
+              - audio/wav
+              edm:rights:
+              - http://rightsstatements.org/vocab/InC/1.0/
+              schema:duration:
+              - PTOH1M30S
+      type: object
+    rights:
+      properties:
+        username:
+          items:
+            example:
+              expires: '2016-08-25T14:31:34Z'
+              value: user123
+            properties:
+              expires:
+                type: string
+              value:
+                type: string
+            type: object
+          type: array
+      type: object
+    geo:
+      properties:
+        metadata:
+          properties:
+            geo:
+              example:
+                kml:
+                  document:
+                    placemark:
+                    - description: Json example of a point geo datastream
+                      name: Name of geo datastream
+                      point:
+                        coordinates:
+                          latitude: '41.6902784095934'
+                          longitude: '44.8112504748688'
+              type: object
+          type: object
+      type: object
+    object_info:
+      properties:
+        _updated:
+          items:
+            type: string
+          type: array
+        _version_:
+          type: number
+        alternativeformats:
+          items:
+            type: string
+          type: array
+        alternativeversions:
+          items:
+            type: string
+          type: array
+        bbox:
+          items:
+            type: string
+          type: array
+        bib_published:
+          items:
+            type: string
+          type: array
+        bib_publisher:
+          items:
+            type: string
+          type: array
+        bib_publisherlocation:
+          items:
+            type: string
+          type: array
+        bib_roles_pers_aut:
+          items:
+            type: string
+          type: array
+        cmodel:
+          type: string
+        created:
+          type: string
+        datastreams:
+          items:
+            type: string
+          type: array
+        dc_creator:
+          items:
+            type: string
+          type: array
+        dc_date:
+          items:
+            type: string
+          type: array
+        dc_description:
+          items:
+            type: string
+          type: array
+        dc_description_:
+          items:
+            type: string
+          type: array
+        dc_identifier:
+          items:
+            type: string
+          type: array
+        dc_language:
+          items:
+            type: string
+          type: array
+        dc_license:
+          items:
+            type: string
+          type: array
+        dc_publisher:
+          items:
+            type: string
+          type: array
+        dc_relation:
+          items:
+            type: string
+          type: array
+        dc_rights:
+          items:
+            type: string
+          type: array
+        dc_subject:
+          items:
+            type: string
+          type: array
+        dc_subject_:
+          items:
+            type: string
+          type: array
+        dc_title:
+          items:
+            type: string
+          type: array
+        dshash:
+          type: object
+        ispartof:
+          items:
+            type: string
+          type: array
+        latlon:
+          type: string
+        metadata:
+          properties:
+            geo:
+              $ref: '#/components/schemas/geo'
+            mods:
+              $ref: '#/components/schemas/mods'
+          type: object
+        metatags:
+          properties:
+            DC.identifier:
+              type: string
+            DC.rights:
+              items:
+                type: string
+              type: array
+          type: object
+      type: object
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    tokenAuth:
+      in: header
+      name: X-XSRF-TOKEN
+      type: apiKey

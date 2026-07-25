@@ -1,0 +1,86 @@
+openapi: 3.0.2
+info:
+  description: Documentation of the PHAIDRA API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: PHAIDRA datastream search API
+  version: '3.0'
+servers:
+- description: API endpoint
+  url: https://phaidra.unipd.it/api
+tags:
+- description: ''
+  name: search
+paths:
+  /search/select:
+    post:
+      description: Solr query, for the query parameters see [Solr common query parameters](https://solr.apache.org/guide/solr/latest/query-guide/common-query-parameters.html)
+      parameters:
+      - description: query string
+        in: query
+        name: q
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  facet_counts:
+                    properties:
+                      facet_fields:
+                        type: object
+                      facet_heatmaps:
+                        type: object
+                      facet_intervals:
+                        type: object
+                      facet_querie:
+                        type: object
+                      facet_ranges:
+                        type: object
+                    type: object
+                  response:
+                    properties:
+                      docs:
+                        type: array
+                      numFound:
+                        type: number
+                      numFoundExact:
+                        type: boolean
+                      start:
+                        type: number
+                    type: object
+                  responseHeader:
+                    items:
+                      properties:
+                        QTime:
+                          type: number
+                        params:
+                          type: object
+                        status:
+                          type: number
+                      type: object
+                    type: array
+                type: object
+          description: search response
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      summary: Search query
+      tags:
+      - search
+components:
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    tokenAuth:
+      in: header
+      name: X-XSRF-TOKEN
+      type: apiKey

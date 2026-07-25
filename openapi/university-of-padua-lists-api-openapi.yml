@@ -1,0 +1,398 @@
+openapi: 3.0.2
+info:
+  description: Documentation of the PHAIDRA API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: PHAIDRA datastream lists API
+  version: '3.0'
+servers:
+- description: API endpoint
+  url: https://phaidra.unipd.it/api
+tags:
+- description: Requests for manipulating object lists
+  name: lists
+paths:
+  /list/add:
+    post:
+      description: Add a list to the user (from credentials).
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                name:
+                  description: List name.
+                  type: string
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  lid:
+                    type: string
+                type: object
+          description: list added, returns list id ('lid')
+      security:
+      - basicAuth: []
+      summary: Add list
+      tags:
+      - lists
+  /list/token/{token}:
+    get:
+      parameters:
+      - description: the requested token no
+        in: path
+        name: token
+        schema: {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  list:
+                    $ref: '#/components/schemas/group'
+                type: object
+          description: list detail
+      summary: Get object list exposed under specified token.
+      tags:
+      - lists
+  /list/{lid}:
+    get:
+      parameters:
+      - description: lid - list id
+        in: path
+        name: lid
+        schema:
+          required: false
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  list:
+                    $ref: '#/components/schemas/group'
+                type: object
+          description: list detail
+      security:
+      - basicAuth: []
+      summary: Get list detail
+      tags:
+      - lists
+  /list/{lid}/members/add:
+    post:
+      parameters:
+      - description: lid - list id
+        in: path
+        name: lid
+        schema:
+          required: false
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                members:
+                  properties:
+                    members:
+                      $ref: '#/components/schemas/lists'
+                  type: object
+              type: object
+        description: 'JSON object containing the pids and titles to add, {"members":[{"pid": "o:1","title": "Title"}]}'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  status:
+                    type: number
+                type: object
+          description: Objects added to list
+      security:
+      - basicAuth: []
+      summary: Add objects to list
+      tags:
+      - lists
+  /list/{lid}/members/remove:
+    post:
+      parameters:
+      - description: lid - list id
+        in: path
+        name: lid
+        schema:
+          required: false
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                members:
+                  properties:
+                    members:
+                      items:
+                        example: o:1
+                        type: string
+                      type: array
+                  type: object
+              type: object
+        description: JSON object containing an array of objects' pids to remove, {"members":[ "o:1","o:2"]}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  status:
+                    type: number
+                type: object
+          description: Objects removed from list.
+      security:
+      - basicAuth: []
+      summary: Remove objects from list
+      tags:
+      - lists
+  /list/{lid}/remove:
+    post:
+      description: Remove list (input list id).
+      parameters:
+      - description: lid - list id
+        in: path
+        name: lid
+        schema:
+          required: false
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                type: object
+          description: list detail
+      security:
+      - basicAuth: []
+      summary: Remove list
+      tags:
+      - lists
+  /list/{lid}/token/create:
+    post:
+      description: The token can be used in the /list/token/{token} request to create a URL under which the list can be publicly displayed.
+      parameters:
+      - description: lid - list id
+        in: path
+        name: lid
+        schema:
+          required: false
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alert:
+                    type: number
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  token:
+                    type: string
+                type: object
+          description: Returns the list token.
+      security:
+      - basicAuth: []
+      summary: Create a list token
+      tags:
+      - lists
+  /list/{lid}/token/delete:
+    post:
+      parameters:
+      - description: lid - list id
+        in: path
+        name: lid
+        schema:
+          required: false
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  status:
+                    type: number
+                type: object
+          description: list detail
+      security:
+      - basicAuth: []
+      summary: Delete list token
+      tags:
+      - lists
+  /lists:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  lists:
+                    $ref: '#/components/schemas/members'
+                type: object
+          description: lists
+      security:
+      - basicAuth: []
+      summary: Get user's object lists
+      tags:
+      - lists
+components:
+  schemas:
+    lists:
+      example:
+      - pid: o:1
+        title: Title 1
+      - pid: o:2
+        title: Title 2
+      items:
+        properties:
+          pid:
+            type: string
+          title:
+            type: string
+        type: object
+      type: array
+    members:
+      example:
+      - pid: o:1
+        pos: 1
+      - pid: o:2
+        pos: 2
+      items:
+        properties:
+          pid:
+            type: string
+          pos:
+            type: string
+        type: object
+      type: array
+    group:
+      properties:
+        _id:
+          properties:
+            $oid:
+              type: string
+          type: object
+        created:
+          type: number
+        groupid:
+          type: string
+        members:
+          items:
+            properties:
+              name:
+                type: string
+              username:
+                type: string
+            type: object
+          type: array
+        name:
+          type: string
+        owner:
+          type: string
+        updated:
+          type: number
+      type: object
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    tokenAuth:
+      in: header
+      name: X-XSRF-TOKEN
+      type: apiKey

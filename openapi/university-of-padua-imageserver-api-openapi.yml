@@ -1,0 +1,202 @@
+openapi: 3.0.2
+info:
+  description: Documentation of the PHAIDRA API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: PHAIDRA datastream imageserver API
+  version: '3.0'
+servers:
+- description: API endpoint
+  url: https://phaidra.unipd.it/api
+tags:
+- description: Requests to the imageserver
+  name: imageserver
+paths:
+  /imageserver:
+    get:
+      description: Proxy for the [imageserver API](http://www.hexaplant.com/pixeldragon/3-access-images.html). This is necessary for the frontend. The images at the image server are hashed so that it's possible to restrict access to them. This method checks if the user (if credentials are provided) is authorized to access the image and if it is, it uses the configured secret to create the hash under which image server knows the image. It then accesses the image server proxying all the parameters and proxies back the response.
+      parameters:
+      - description: IIIF request
+        example: o:440180.tif/full/256,256/0/default.jpg
+        in: query
+        name: IIIF
+        schema:
+          required: false
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  alerts:
+                    items:
+                      properties:
+                        msg:
+                          type: string
+                        type:
+                          type: string
+                      type: object
+                    type: array
+                  status:
+                    type: number
+                  streaming:
+                    type: object
+                type: object
+          description: Returns the data needed by the IIP-compatible viewers
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      summary: Proxy for the imageserver.
+      tags:
+      - imageserver
+  /imageserver/process:
+    post:
+      description: If an image server is configured, creates a job in the image server's database to process all the pids from the provided list. Needs admin credentials.
+      parameters:
+      - description: Value 1 to skip creating a job for this pid if a job for a pid already exists.
+        in: query
+        name: skipexisting
+        schema:
+          enum:
+          - 1
+          required: false
+          type: number
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                pids:
+                  properties:
+                    pids:
+                      items:
+                        example: pids
+                        type: string
+                      type: array
+                  type: object
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    idhash:
+                      type: string
+                    pid:
+                      type: string
+                  type: object
+                type: array
+          description: processed
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Failed
+      security:
+      - basicAuth: []
+      summary: Let imageserver process multiple objects.
+      tags:
+      - imageserver
+  /imageserver/{pid}/process:
+    post:
+      description: Post an object to be processed to the imageserver. Needs admin credentials
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      - description: Value 1 to skip creating a job for this pid if a job for a pid already exists.
+        in: query
+        name: skipexisting
+        schema:
+          enum:
+          - 1
+          required: false
+          type: number
+      - description: By default, OCTETS is processed. This is a possibility to define another datastream.
+        in: query
+        name: ds
+        schema:
+          enum:
+          - USERTHUMB
+          required: false
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    idhash:
+                      type: string
+                    pid:
+                      type: string
+                  type: object
+                type: array
+          description: processed
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Failed
+      security:
+      - basicAuth: []
+      summary: Post to (re-)process one pid on imageserver.
+      tags:
+      - imageserver
+  /imageserver/{pid}/status:
+    get:
+      description: If imageserver is configured, returns the record from the imageserver job database for the pid specified. Read rights are needed.
+      parameters:
+      - description: object pid
+        in: path
+        name: pid
+        schema:
+          required: true
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  conversion:
+                    example: ok
+                    type: string
+                  status:
+                    example: finished
+                    type: string
+                type: object
+          description: record from the imageserver job database
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: object has not been found
+      security:
+      - basicAuth: []
+      summary: Get imageserver job status
+      tags:
+      - imageserver
+components:
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    tokenAuth:
+      in: header
+      name: X-XSRF-TOKEN
+      type: apiKey
