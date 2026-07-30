@@ -14,9 +14,22 @@ description: >-
   eduGAIN. There is no central institutional GitHub organization for the
   university as a whole; public code lives in individual lab and department orgs.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-padua.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-padua/refs/heads/main/apis.yml
 tags:
   - Education
@@ -31,106 +44,376 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: university-of-padua:phaidra
-    name: PHAIDRA Digital Collections REST API
-    description: >-
-      PHAIDRA is the University of Padua Library System's platform for the
-      management, consultation, and long-term archiving of digital objects and
-      collections (images, texts, books, videos). It exposes a documented REST
-      API (Mojolicious/Perl) described by an OpenAPI definition, including object
-      metadata endpoints such as /api/object/{pid}/index/dc. Verified live at
-      time of review.
-    humanURL: https://phaidra.cab.unipd.it/
-    baseURL: https://phaidra.cab.unipd.it/api
-    tags: [ Library, Digital Collections, REST, OpenAPI, Repository ]
-    properties:
-      - type: Documentation
-        url: https://phaidra.cab.unipd.it/api/openapi
-      - type: OpenAPI
-        url: https://phaidra.cab.unipd.it/api/openapi
-      - type: OpenAPI
-        url: openapi/university-of-padua-phaidra.yaml
-      - type: JSONSchema
-        url: json-schema/university-of-padua-object_info-schema.json
-      - type: Vocabulary
-        url: vocabulary/university-of-padua-vocabulary.yml
-      - type: Rules
-        url: rules/university-of-padua-rules.yml
-      - type: x-json-ld
-        url: json-ld/university-of-padua-context.jsonld
-  - aid: university-of-padua:phaidra-iiif
-    name: PHAIDRA IIIF Image API
-    description: >-
-      PHAIDRA serves digital images through an IIIF (International Image
-      Interoperability Framework) image server, enabling standards-based deep
-      zoom and image delivery for the university's digital collections.
-    humanURL: https://phaidra.cab.unipd.it/
-    baseURL: https://phaidra.cab.unipd.it/api/imageserver
-    tags: [ IIIF, Images, Library, Digital Collections ]
-    properties:
-      - type: Documentation
-        url: https://phaidra.cab.unipd.it/api/openapi
-  - aid: university-of-padua:phaidra-oai
-    name: PHAIDRA OAI-PMH
-    description: >-
-      OAI-PMH metadata harvesting endpoint for the PHAIDRA digital collections,
-      allowing programmatic harvesting of Dublin Core and related metadata.
-      Verified live (verb=Identify returns HTTP 200) at time of review.
-    humanURL: https://phaidra.cab.unipd.it/
-    baseURL: https://phaidra.cab.unipd.it/api/oai
-    tags: [ OAI-PMH, Metadata, Library, Repository ]
-    properties:
-      - type: Documentation
-        url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
-      - type: OAI-PMH
-        url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
-  - aid: university-of-padua:padua-research-oai
-    name: Padua@Research OAI-PMH
-    description: >-
-      Padua@Research (Padua Research Archive) is an EPrints-based institutional
-      repository of the University of Padua's scientific production. It exposes an
-      OAI-PMH 2.0 metadata harvesting interface; full text of some items is
-      restricted to registered users. Verified live at time of review.
-    humanURL: https://paduaresearch.cab.unipd.it/
-    baseURL: https://paduaresearch.cab.unipd.it/cgi/oai2
-    tags: [ OAI-PMH, Repository, EPrints, Research, Library ]
-    properties:
-      - type: Documentation
-        url: https://paduaresearch.cab.unipd.it/
-      - type: OAI-PMH
-        url: https://paduaresearch.cab.unipd.it/cgi/oai2?verb=Identify
-  - aid: university-of-padua:researchdata-oai
-    name: Research Data Unipd OAI-PMH
-    description: >-
-      Research Data Unipd is the EPrints-based research-data archive of the
-      University of Padua, supporting data discovery, sharing, and reuse using
-      DataCite and Dublin Core metadata. It is an OpenAIRE content provider and is
-      registered in re3data, OpenDOAR, and FAIRsharing. Exposes an OAI-PMH 2.0
-      endpoint (repositoryName "Research Data Unipd"), verified live at time of
-      review.
-    humanURL: https://researchdata.cab.unipd.it/
-    baseURL: https://researchdata.cab.unipd.it/cgi/oai2
-    tags: [ OAI-PMH, Research Data, EPrints, Repository, Library ]
-    properties:
-      - type: Documentation
-        url: https://researchdata.cab.unipd.it/
-      - type: OAI-PMH
-        url: https://researchdata.cab.unipd.it/cgi/oai2?verb=Identify
-  - aid: university-of-padua:sso
-    name: Single Sign-On (Shibboleth/SAML)
-    description: >-
-      The University of Padua provides centralized authentication via a
-      Shibboleth-based Single Sign-On, integrated with the IDEM GARR federation
-      and eduGAIN. Service Provider integration and SAML metadata parameters are
-      documented for technical staff; this is institutional federated identity
-      infrastructure, not a self-service public API.
-    humanURL: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
-    tags: [ Authentication, SSO, SAML, Shibboleth, Identity ]
-    properties:
-      - type: Documentation
-        url: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
-      - type: Authentication
-        url: https://registrazionisp.ict.unipd.it/
+- aid: university-of-padua:phaidra-iiif
+  name: PHAIDRA IIIF Image API
+  description: >-
+    PHAIDRA serves digital images through an IIIF (International Image Interoperability Framework) image
+    server, enabling standards-based deep zoom and image delivery for the university's digital collections.
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api/imageserver
+  tags:
+  - IIIF
+  - Images
+  - Library
+  - Digital Collections
+  properties:
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+- aid: university-of-padua:phaidra-oai
+  name: PHAIDRA OAI-PMH
+  description: >-
+    OAI-PMH metadata harvesting endpoint for the PHAIDRA digital collections, allowing programmatic harvesting
+    of Dublin Core and related metadata. Verified live (verb=Identify returns HTTP 200) at time of review.
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api/oai
+  tags:
+  - OAI-PMH
+  - Metadata
+  - Library
+  - Repository
+  properties:
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
+  - type: OAI-PMH
+    url: https://phaidra.cab.unipd.it/api/oai?verb=Identify
+- aid: university-of-padua:padua-research-oai
+  name: Padua@Research OAI-PMH
+  description: >-
+    Padua@Research (Padua Research Archive) is an EPrints-based institutional repository of the University
+    of Padua's scientific production. It exposes an OAI-PMH 2.0 metadata harvesting interface; full text
+    of some items is restricted to registered users. Verified live at time of review.
+  humanURL: https://paduaresearch.cab.unipd.it/
+  baseURL: https://paduaresearch.cab.unipd.it/cgi/oai2
+  tags:
+  - OAI-PMH
+  - Repository
+  - EPrints
+  - Research
+  - Library
+  properties:
+  - type: Documentation
+    url: https://paduaresearch.cab.unipd.it/
+  - type: OAI-PMH
+    url: https://paduaresearch.cab.unipd.it/cgi/oai2?verb=Identify
+- aid: university-of-padua:researchdata-oai
+  name: Research Data Unipd OAI-PMH
+  description: >-
+    Research Data Unipd is the EPrints-based research-data archive of the University of Padua, supporting
+    data discovery, sharing, and reuse using DataCite and Dublin Core metadata. It is an OpenAIRE content
+    provider and is registered in re3data, OpenDOAR, and FAIRsharing. Exposes an OAI-PMH 2.0 endpoint
+    (repositoryName "Research Data Unipd"), verified live at time of review.
+  humanURL: https://researchdata.cab.unipd.it/
+  baseURL: https://researchdata.cab.unipd.it/cgi/oai2
+  tags:
+  - OAI-PMH
+  - Research Data
+  - EPrints
+  - Repository
+  - Library
+  properties:
+  - type: Documentation
+    url: https://researchdata.cab.unipd.it/
+  - type: OAI-PMH
+    url: https://researchdata.cab.unipd.it/cgi/oai2?verb=Identify
+- aid: university-of-padua:sso
+  name: Single Sign-On (Shibboleth/SAML)
+  description: >-
+    The University of Padua provides centralized authentication via a Shibboleth-based Single Sign-On,
+    integrated with the IDEM GARR federation and eduGAIN. Service Provider integration and SAML metadata
+    parameters are documented for technical staff; this is institutional federated identity infrastructure,
+    not a self-service public API.
+  humanURL: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
+  tags:
+  - Authentication
+  - SSO
+  - SAML
+  - Shibboleth
+  - Identity
+  properties:
+  - type: Documentation
+    url: https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider
+  - type: Authentication
+    url: https://registrazionisp.ict.unipd.it/
+- aid: university-of-padua:university-of-padua-datastream-api
+  name: University of Padua datastream API
+  description: Requests for transforming and validating datastreams
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - datastream
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-datastream-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-directory-api
+  name: University of Padua directory API
+  description: Requests related to users, user groups and organisation structure
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - directory
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-directory-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-imageserver-api
+  name: University of Padua imageserver API
+  description: Requests to the imageserver
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - imageserver
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-imageserver-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-lists-api
+  name: University of Padua lists API
+  description: Requests for manipulating object lists
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - lists
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-lists-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-misc-api
+  name: University of Padua misc API
+  description: The misc API from University of Padua — 7 operation(s) for misc.
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - misc
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-misc-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-oai-pmh-api
+  name: University of Padua oai-pmh API
+  description: Look at the [OAI-PMH protocol](https://www.openarchives.org/pmh) used in this endpoint
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - oai-pmh
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-oai-pmh-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-object-advanced-api
+  name: University of Padua object-advanced API
+  description: Additional requests for the manipulation of digital objects
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - object-advanced
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-object-advanced-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-object-basics-api
+  name: University of Padua object-basics API
+  description: Most important requests you'll need to manage digital objects in PHAIDRA
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - object-basics
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-object-basics-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-relationships-api
+  name: University of Padua relationships API
+  description: Requests for adding and removing object relationships
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - relationships
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-relationships-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-search-api
+  name: University of Padua search API
+  description: The search API from University of Padua — 1 operation(s) for search.
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-search-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-session-api
+  name: University of Padua session API
+  description: Session management
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - session
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-session-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-stats-api
+  name: University of Padua stats API
+  description: The stats API from University of Padua — 4 operation(s) for stats.
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - stats
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-stats-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-templates-api
+  name: University of Padua templates API
+  description: Requests for managing metadata templates
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - templates
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-templates-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
+- aid: university-of-padua:university-of-padua-vocabularies-api
+  name: University of Padua vocabularies API
+  description: Requests for controlled vocabularies
+  humanURL: https://phaidra.cab.unipd.it/
+  baseURL: https://phaidra.cab.unipd.it/api
+  tags:
+  - vocabularies
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-padua-vocabularies-api-openapi.yml
+  - type: Documentation
+    url: https://phaidra.cab.unipd.it/api/openapi
+  - type: JSONSchema
+    url: json-schema/university-of-padua-object_info-schema.json
+  - type: Vocabulary
+    url: vocabulary/university-of-padua-vocabulary.yml
+  - type: Rules
+    url: rules/university-of-padua-rules.yml
+  - type: x-json-ld
+    url: json-ld/university-of-padua-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/university-of-padua-agentic-access.yml
