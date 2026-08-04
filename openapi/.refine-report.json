@@ -1,0 +1,40 @@
+{
+  "provider": "university-of-padua",
+  "sources": [
+    "university-of-padua-datastream-api-openapi.yml",
+    "university-of-padua-directory-api-openapi.yml",
+    "university-of-padua-imageserver-api-openapi.yml",
+    "university-of-padua-lists-api-openapi.yml",
+    "university-of-padua-misc-api-openapi.yml",
+    "university-of-padua-oai-pmh-api-openapi.yml",
+    "university-of-padua-object-advanced-api-openapi.yml",
+    "university-of-padua-object-basics-api-openapi.yml",
+    "university-of-padua-relationships-api-openapi.yml",
+    "university-of-padua-search-api-openapi.yml",
+    "university-of-padua-session-api-openapi.yml",
+    "university-of-padua-stats-api-openapi.yml",
+    "university-of-padua-templates-api-openapi.yml",
+    "university-of-padua-vocabularies-api-openapi.yml"
+  ],
+  "outputs": [
+    "university-of-padua-datastream-api-openapi.yml",
+    "university-of-padua-directory-api-openapi.yml",
+    "university-of-padua-imageserver-api-openapi.yml",
+    "university-of-padua-lists-api-openapi.yml",
+    "university-of-padua-misc-api-openapi.yml",
+    "university-of-padua-oai-pmh-api-openapi.yml",
+    "university-of-padua-object-advanced-api-openapi.yml",
+    "university-of-padua-object-basics-api-openapi.yml",
+    "university-of-padua-relationships-api-openapi.yml",
+    "university-of-padua-search-api-openapi.yml",
+    "university-of-padua-session-api-openapi.yml",
+    "university-of-padua-stats-api-openapi.yml",
+    "university-of-padua-templates-api-openapi.yml",
+    "university-of-padua-vocabularies-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
