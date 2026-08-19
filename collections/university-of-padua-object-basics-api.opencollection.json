@@ -1,0 +1,524 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PHAIDRA datastream object-basics API",
+    "version": "3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "object-basics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates an audio object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/audio/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a simple data object with internal content model cmodel:Audio. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example."
+        },
+        {
+          "info": {
+            "name": "Creates a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/collection/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Use to create collection object. The process is the same as for other simple objects (e.g. picture/create), just don't provide any file parameter."
+        },
+        {
+          "info": {
+            "name": "Creates a container object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/container/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "member_bar",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "member_foo",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-container) for an example."
+        },
+        {
+          "info": {
+            "name": "Creates a document object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/document/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a simple data object with internal content model cmodel:PDFDocument. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example."
+        },
+        {
+          "info": {
+            "name": "Delete object.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/delete",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method permanently deletes the object from the repository. In case Fedora 6+ is the backend repository, a tombstone will be created in object's place."
+        },
+        {
+          "info": {
+            "name": "Download object's data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/download",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Receive data as Content-Disposition: attachment. Use this link if you want the browser to download a file."
+        },
+        {
+          "info": {
+            "name": "Get object's data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/get",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Receive data as a stream. Use this link if you want to embed the data, e.g. in a player/viewer."
+        },
+        {
+          "info": {
+            "name": "Re-indexes object.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/index",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              },
+              {
+                "name": "ignorestatus",
+                "value": "",
+                "type": "path",
+                "description": "ignore object status, i.e. include inactive objects"
+              },
+              {
+                "name": "norecursion",
+                "value": "",
+                "type": "path",
+                "description": "skip re-indexing of the parent object"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Triggers the update of the object's index (Solr). Need admin authentication"
+        },
+        {
+          "info": {
+            "name": "Get object info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/info",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method returns metadata (UWMETADATA, MODS, JSON-LD, etc., depending on the metadata datastream), as well as indexed data about the object and its related objects. It's the primary method of getting as much information about an object as possible."
+        },
+        {
+          "info": {
+            "name": "Edit object's metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/metadata",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Supported elements (in JSON format) are: json-ld, json-ld-private, mods, uwmetadata, rights, geo, members, membersorder and relationships."
+        },
+        {
+          "info": {
+            "name": "Get preview page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/preview",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the preview page, for example for embedding in an iframe. Image viewer for supported image formats, PDF viewer for PDFs, audio/video player for media, etc."
+        },
+        {
+          "info": {
+            "name": "Retrieves the object access restrictions. This method expects authentication.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/rights",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the object access restrictions. This method expects authentication."
+        },
+        {
+          "info": {
+            "name": "Saves the object's access restrictions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/rights",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Leave the rights empty (rights:{}) to remove restrictions from object."
+        },
+        {
+          "info": {
+            "name": "Get the thumbnail image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/thumbnail",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get the thumbnail image"
+        },
+        {
+          "info": {
+            "name": "Creates a picture object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/picture/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a simple data object with internal content model cmodel:Picture. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example."
+        },
+        {
+          "info": {
+            "name": "Creates a data object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/unknown/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a simple data object with internal content model cmodel:Asset. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example."
+        },
+        {
+          "info": {
+            "name": "Creates a video object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/video/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a simple data object with internal content model cmodel:Video. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

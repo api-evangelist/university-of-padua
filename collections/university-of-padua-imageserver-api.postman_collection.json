@@ -1,0 +1,705 @@
+{
+  "item": [
+    {
+      "id": "576bc9fa-1cc2-4c45-95aa-ab9f8be05058",
+      "name": "imageserver",
+      "description": {
+        "content": "Requests to the imageserver",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d01f745a-619c-48a0-b135-b2b12c3c4013",
+          "name": "Proxy for the imageserver.",
+          "request": {
+            "name": "Proxy for the imageserver.",
+            "description": {
+              "content": "Proxy for the [imageserver API](http://www.hexaplant.com/pixeldragon/3-access-images.html). This is necessary for the frontend. The images at the image server are hashed so that it's possible to restrict access to them. This method checks if the user (if credentials are provided) is authorized to access the image and if it is, it uses the configured secret to create the hash under which image server knows the image. It then accesses the image server proxying all the parameters and proxies back the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "imageserver"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "IIIF",
+                  "value": "<string>",
+                  "description": "IIIF request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69b770e4-0407-4fb8-b32b-8ce64d91e2ae",
+              "name": "Returns the data needed by the IIP-compatible viewers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "IIIF",
+                      "value": "o:440180.tif/full/256,256/0/default.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"status\": 3220.80850908241,\n  \"streaming\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd2904ee-44ea-418d-b873-3b579de731c9",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "IIIF",
+                      "value": "o:440180.tif/full/256,256/0/default.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ba907bb-4ec5-4ff2-b6d6-7d5234593023",
+          "name": "Let imageserver process multiple objects.",
+          "request": {
+            "name": "Let imageserver process multiple objects.",
+            "description": {
+              "content": "If an image server is configured, creates a job in the image server's database to process all the pids from the provided list. Needs admin credentials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "imageserver",
+                "process"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skipexisting",
+                  "value": "<number>",
+                  "description": "Value 1 to skip creating a job for this pid if a job for a pid already exists."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "pids",
+                  "value": "{\"pids\":[\"<string>\",\"<string>\"]}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e8a822e2-eb58-4574-b638-edf0a047316d",
+              "name": "processed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver",
+                    "process"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skipexisting",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "pids",
+                      "value": "{\"pids\":[\"pids\",\"pids\"]}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"idhash\": \"string\",\n    \"pid\": \"string\"\n  },\n  {\n    \"idhash\": \"string\",\n    \"pid\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2de26e43-cd8b-4d33-b4f3-098b6d3c6434",
+              "name": "Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver",
+                    "process"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skipexisting",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "pids",
+                      "value": "{\"pids\":[\"pids\",\"pids\"]}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec840af4-079b-4434-bcb4-b3e6dfbea4f2",
+          "name": "Post to (re-)process one pid on imageserver.",
+          "request": {
+            "name": "Post to (re-)process one pid on imageserver.",
+            "description": {
+              "content": "Post an object to be processed to the imageserver. Needs admin credentials",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "imageserver",
+                ":pid",
+                "process"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skipexisting",
+                  "value": "<number>",
+                  "description": "Value 1 to skip creating a job for this pid if a job for a pid already exists."
+                },
+                {
+                  "disabled": false,
+                  "key": "ds",
+                  "value": "<string>",
+                  "description": "By default, OCTETS is processed. This is a possibility to define another datastream."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f88020d-c5a5-49dd-ad37-8d96510d4015",
+              "name": "processed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver",
+                    ":pid",
+                    "process"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skipexisting",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "ds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"idhash\": \"string\",\n    \"pid\": \"string\"\n  },\n  {\n    \"idhash\": \"string\",\n    \"pid\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3777619b-d323-4c6b-8b10-b1b8977f3808",
+              "name": "Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver",
+                    ":pid",
+                    "process"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skipexisting",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "ds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dde3a67-8f47-4d45-869d-310c12ba19f4",
+          "name": "Get imageserver job status",
+          "request": {
+            "name": "Get imageserver job status",
+            "description": {
+              "content": "If imageserver is configured, returns the record from the imageserver job database for the pid specified. Read rights are needed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "imageserver",
+                ":pid",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7957357d-b4a3-47d4-a07c-7be7932e8458",
+              "name": "record from the imageserver job database",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver",
+                    ":pid",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversion\": \"ok\",\n  \"status\": \"finished\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c823ac84-b62e-4b7a-a5a8-d29516d5b367",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "imageserver",
+                    ":pid",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://phaidra.unipd.it/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9f24de37-4b1f-454d-b683-5fd6c6fd5cf7",
+    "name": "PHAIDRA datastream imageserver API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of the PHAIDRA API.",
+      "type": "text/plain"
+    }
+  }
+}

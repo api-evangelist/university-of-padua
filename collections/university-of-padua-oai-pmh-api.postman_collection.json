@@ -1,0 +1,331 @@
+{
+  "item": [
+    {
+      "id": "27fbf499-4afc-4e44-b5e4-5d6ffd040603",
+      "name": "oai-pmh",
+      "description": {
+        "content": "Look at the [OAI-PMH protocol](https://www.openarchives.org/pmh) used in this endpoint",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "516d770c-a4ae-46bd-bc33-cdb265c1c3f2",
+          "name": "OAI-PMH endpoint.",
+          "request": {
+            "name": "OAI-PMH endpoint.",
+            "description": {},
+            "url": {
+              "path": [
+                "oai"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verb",
+                  "value": "<number>",
+                  "description": "See [the OAI-PMH protocol](https://www.openarchives.org/pmh/)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5d92071-89d9-4cbc-b504-11df3792ab02",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verb",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18ecab53-cf3e-499a-a2bf-1960951c2b5f",
+          "name": "Same as GET.",
+          "request": {
+            "name": "Same as GET.",
+            "description": {},
+            "url": {
+              "path": [
+                "oai"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10ec3242-0619-4da1-bca9-bc7421c6b967",
+              "name": "See [the OAI-PMH protocol](https://www.openarchives.org/pmh/)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeafe8f9-79e5-497b-82b1-a853d320eeb4",
+          "name": "Add blacklist entries from TSV or JSON payload",
+          "request": {
+            "name": "Add blacklist entries from TSV or JSON payload",
+            "description": {
+              "content": "Ingest TSV with columns `AC-Nummer` and `Identifier Phaidra`, and create records in `oai_records_blacklist` if ac_number/pid not already present. The blacklist is a list of PIDs which should not be included in a particular set in OAI-PMH, e.g. because the harvester gets those objects by other means (avoids duplicity).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oai",
+                "blacklist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sets",
+                  "value": "<string>",
+                  "description": "Optional sets (comma-separated), if not supplied in JSON body."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tsv\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2dffd010-da25-4e07-8fe1-ce15853cf726",
+              "name": "Summary of inserted/existing/invalid rows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai",
+                    "blacklist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sets",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sets\": [\n    \"phaidra4primo\"\n  ],\n  \"tsv\": \"AC-Nummer\\tIdentifier Phaidra\\nAC00001880\\to:2045295\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"existing\": 9751,\n  \"inserted\": 4946,\n  \"invalid\": 3726,\n  \"sets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"total_rows\": 153\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60bd5b5e-230d-4f6f-8951-53266a668c49",
+              "name": "Bad request details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai",
+                    "blacklist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sets",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sets\": [\n    \"phaidra4primo\"\n  ],\n  \"tsv\": \"AC-Nummer\\tIdentifier Phaidra\\nAC00001880\\to:2045295\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://phaidra.unipd.it/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b678e6c7-f1cd-45df-bd15-a5b32a3b2a41",
+    "name": "PHAIDRA datastream oai-pmh API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of the PHAIDRA API.",
+      "type": "text/plain"
+    }
+  }
+}

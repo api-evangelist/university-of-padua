@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PHAIDRA datastream stats API",
+    "version": "3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get usage statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/stats/:pid",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Returns object's usage statistics"
+        },
+        {
+          "info": {
+            "name": "Get timestamped /info and download count.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/stats/:pid/chart",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Get /info and download count, with detailed timestamps."
+        },
+        {
+          "info": {
+            "name": "Get number of /info calls.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/stats/:pid/detail_page",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Returns the number of /info calls, which are typically used when accessing the detail page."
+        },
+        {
+          "info": {
+            "name": "Get downloads count.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/stats/:pid/downloads",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Get downloads count."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

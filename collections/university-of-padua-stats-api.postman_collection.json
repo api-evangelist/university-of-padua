@@ -1,0 +1,387 @@
+{
+  "item": [
+    {
+      "id": "d0443180-1575-439d-ac4f-ee6e8b36714c",
+      "name": "stats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bc67285a-5256-4348-9ecd-b87297f98edb",
+          "name": "Get usage statistics",
+          "request": {
+            "name": "Get usage statistics",
+            "description": {
+              "content": "Returns object's usage statistics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats",
+                ":pid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "624b9452-73cd-40dd-a261-56ff61f5b6c9",
+              "name": "Usage statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    ":pid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"stats\": {\n    \"detail_page\": \"string\",\n    \"downloads\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1934a967-affb-47e1-8e72-4252b305a862",
+          "name": "Get timestamped /info and download count.",
+          "request": {
+            "name": "Get timestamped /info and download count.",
+            "description": {
+              "content": "Get /info and download count, with detailed timestamps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats",
+                ":pid",
+                "chart"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "354a00c7-909a-4333-8a2b-e45609357e1e",
+              "name": "details on object (download, detail_page, etc.)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    ":pid",
+                    "chart"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"stats\": {\n    \"detail_page\": {\n      \"at\": {}\n    },\n    \"downloads\": 6627.137071753502\n  },\n  \"status\": 7941.345724332098\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e5b3bd8-986f-496c-a7db-ddb041c3d6dc",
+          "name": "Get number of /info calls.",
+          "request": {
+            "name": "Get number of /info calls.",
+            "description": {
+              "content": "Returns the number of /info calls, which are typically used when accessing the detail page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats",
+                ":pid",
+                "detail_page"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f33433a7-4858-4cd7-ab91-0cb79498c452",
+              "name": "/info calls count (integer)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    ":pid",
+                    "detail_page"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52abb602-aaa7-412d-b49f-14a3b1038590",
+          "name": "Get downloads count.",
+          "request": {
+            "name": "Get downloads count.",
+            "description": {},
+            "url": {
+              "path": [
+                "stats",
+                ":pid",
+                "downloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9d7df82-86d1-40a1-ad0b-3d6bd3e3a405",
+              "name": "Download count (integer). Useful e.g. for ajax content update without any response parsing necessary.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    ":pid",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://phaidra.unipd.it/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "71850c2b-b683-49c5-a5a4-31f303768fe1",
+    "name": "PHAIDRA datastream stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of the PHAIDRA API.",
+      "type": "text/plain"
+    }
+  }
+}

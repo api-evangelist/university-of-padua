@@ -1,0 +1,1069 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PHAIDRA datastream object-advanced API",
+    "version": "3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "object-advanced",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Checks rights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/authz/check/:pid/:op",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "pid - object id"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "path",
+                "description": "rights for operation"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Checks if the authenticated user has appropriate rights for an operation on the object (readable/writable). Can also be checked for unauthenticated user."
+        },
+        {
+          "info": {
+            "name": "Re-index multiple objects at once",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/index ",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Post a list of objects which should be re-indexed - needs admin credentials"
+        },
+        {
+          "info": {
+            "name": "Create empty object, without a specified cmodel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create empty object, without a specified cmodel"
+        },
+        {
+          "info": {
+            "name": "Create empty object, with cmodel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/create/:cmodel",
+            "params": [
+              {
+                "name": "cmodel",
+                "value": "",
+                "type": "path",
+                "description": "object cmodel"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create empty object, with cmodel"
+        },
+        {
+          "info": {
+            "name": "Get annotations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/annotations",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ]
+          },
+          "docs": "Retrieve annotations datastream."
+        },
+        {
+          "info": {
+            "name": "Saves annotations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/annotations",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method can save annotations to an object. The format chosen is taken from IIPMooViewer."
+        },
+        {
+          "info": {
+            "name": "Get cmodel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/cmodel",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Returns the object cmodel"
+        },
+        {
+          "info": {
+            "name": "Replace data (add a new version of OCTETS datastream)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/data",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              },
+              {
+                "name": "mimetype",
+                "value": "",
+                "type": "query",
+                "description": "object mimetype"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Replace data (add a new version of OCTETS datastream)"
+        },
+        {
+          "info": {
+            "name": "Transforms metadata to DataCite.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/datacite",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Transforms metadata to DataCite."
+        },
+        {
+          "info": {
+            "name": "Add or modify datastream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/datastream/:dsid",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              },
+              {
+                "name": "dsid",
+                "value": "IIIF-MANIFEST",
+                "type": "path",
+                "description": "datastream id"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "controlgroup",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "dscontent",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "dslabel",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "location",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Add or modify datastream"
+        },
+        {
+          "info": {
+            "name": "Retrieves the FULLTEXT datastream of a specified object. It returns this datastream as it was saved: this is not a method which extracts fulltext from object's data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/fulltext",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "requested pid - object id"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "specifies the  desired format for the return"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the FULLTEXT datastream of a specified object. It returns this datastream as it was saved: this is not a method which extracts fulltext from object's data."
+        },
+        {
+          "info": {
+            "name": "Get geo.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/geo",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ]
+          },
+          "docs": "Retrieves geo datastream of object."
+        },
+        {
+          "info": {
+            "name": "Saves geo.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/geo",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method saves information about the object's geolocation."
+        },
+        {
+          "info": {
+            "name": "Get Dublin Core identifiers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/id",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Get a list of identifiers that are saved in Dublin Core as [http://purl.org/dc/terms/identifier](http://purl.org/dc/terms/identifier)."
+        },
+        {
+          "info": {
+            "name": "Add an identifier triple",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/id/add",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hdl",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "urn",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Add an identifier to the triples (as a relationship with the predicate 'http://purl.org/dc/terms/identifier'). It is then available in the Dublin Core and index automatically, but will not be added to metadata. IDs added this way are usually added by PHAIDRA (for Handles), while the IDs in metadata are added and controlled by the user."
+        },
+        {
+          "info": {
+            "name": "Remove identifier from triples",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/id/remove",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "doi",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hdl",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "urn",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Remove identifier from triples"
+        },
+        {
+          "info": {
+            "name": "Get iiifmanifest.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/iiifmanifest",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "requested pid"
+              }
+            ]
+          },
+          "docs": "Retrieves the iiifmanifest datastream."
+        },
+        {
+          "info": {
+            "name": "Saves the iiifmanifest.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/iiifmanifest",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Saves the iiifmanifest."
+        },
+        {
+          "info": {
+            "name": "Get DC",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/index/dc",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Get metadata exported (and significantly reduced) in Dublin Core standard"
+        },
+        {
+          "info": {
+            "name": "Get object's members.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/index/members",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Get object's members using indexed data."
+        },
+        {
+          "info": {
+            "name": "Get relationships, from index.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/index/relationships",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Retrieves the object's relationships using indexed data."
+        },
+        {
+          "info": {
+            "name": "Get full JSON-LD.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/json-ld",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ]
+          },
+          "docs": "Retrieve full object JSON-LD, with `@context` header, etc."
+        },
+        {
+          "info": {
+            "name": "Get JSON-LD.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/jsonld",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ]
+          },
+          "docs": "Retrieve object JSON-LD metadata."
+        },
+        {
+          "info": {
+            "name": "Saves JSON-LD.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/jsonld",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method saves the metadata if you are using JSON-LD as a metadata structure."
+        },
+        {
+          "info": {
+            "name": "Get the non-public JSON-LD-PRIVATE datastream.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/jsonldprivate",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get the non-public JSON-LD-PRIVATE datastream."
+        },
+        {
+          "info": {
+            "name": "Save JSON-LD-PRIVATE datastream",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/jsonldprivate",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method saves the object's metadata if you are using jsonld as a metadata structure. Unlike JSON-LD which is always visible, JSON-LD-PRIVATE is only available to the owner/admin."
+        },
+        {
+          "info": {
+            "name": "Retrieve members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/members/order",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              }
+            ]
+          },
+          "docs": "Retrieve members"
+        },
+        {
+          "info": {
+            "name": "Get object's metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/metadata",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ]
+          },
+          "docs": "Retrieve the object metadata (UWMETADATA, MODS, JSON-LD, etc., depending on the metadata datastream)."
+        },
+        {
+          "info": {
+            "name": "Modify object properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/modify",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "label",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "lastmodifieddate",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "logmessage",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ownerid",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "state",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Modify the basic properties of an object (the parameters are all optional). Admin credentials are needed."
+        },
+        {
+          "info": {
+            "name": "Get mods.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/mods",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the format to be returned. If the format param is set to 'xml', the datastream would be returned as it is saved in Fedora."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "If the mode is 'full', the whole tree with filled-in values will be returned. If the mode is 'basic' (default), only the filled-in nodes are returned. If the mode is 'resolved', the same JSON as in 'basic' mode will be returned, but all IDs will be resolved to labels. If format param and mode param are both used, only format param will be considered."
+              }
+            ]
+          },
+          "docs": "Retrieves object mods datastream."
+        },
+        {
+          "info": {
+            "name": "Saves mods.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/mods",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method saves the object's metadata if you are using the mods as a metadata structure. "
+        },
+        {
+          "info": {
+            "name": "Get relationships.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/relationships",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Returns the object relationships (triplestore)."
+        },
+        {
+          "info": {
+            "name": "Get state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/state",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object id"
+              }
+            ]
+          },
+          "docs": "Returns the state of the object."
+        },
+        {
+          "info": {
+            "name": "Get uwmetadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/object/:pid/uwmetadata",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "the requested object id"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the format to be returned. If the format param is set to 'xml', the datastream would be returned as it is saved in Fedora."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "If the mode is 'full', the whole tree with filled-in values will be returned. If the mode is 'basic' (default), only the filled-in nodes are returned. If the mode is 'resolved', the same JSON as in 'basic' mode will be returned, but all IDs will be resolved to labels. If format param and mode param are both used, only format param will be considered."
+              }
+            ]
+          },
+          "docs": "Retrieves the object uwmetadata datastream."
+        },
+        {
+          "info": {
+            "name": "Saves uwmetadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/object/:pid/uwmetadata",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This method saves the object's metadata if you are using the uwmetadata as a metadata structure."
+        },
+        {
+          "info": {
+            "name": "Creates a page object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/page/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a page object"
+        },
+        {
+          "info": {
+            "name": "Creates a resource(-link) object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/resource/create",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "metadata",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "mimetype",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a resource(-link) object"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

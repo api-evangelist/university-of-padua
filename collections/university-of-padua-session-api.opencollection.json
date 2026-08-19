@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PHAIDRA datastream session API",
+    "version": "3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "session",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Extends session expiration time",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/keepalive",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XSRF-TOKEN",
+              "value": "{{X-XSRF-TOKEN}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Extends the expiration time of the session token (the session is identified by the token)."
+        },
+        {
+          "info": {
+            "name": "Sign in",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/signin",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Authenticate with the api to get an XSFR token back (a cookie with the same name will be set as well). You then have to send this token back in an X-XSRF-TOKEN header for each authenticated call."
+        },
+        {
+          "info": {
+            "name": "Sign out",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/signout",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XSRF-TOKEN",
+              "value": "{{X-XSRF-TOKEN}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Sign out"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

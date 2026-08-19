@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PHAIDRA datastream templates API",
+    "version": "3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adds JSON-LD templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/jsonld/template/add",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "form",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "tag",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Adds JSON-LD templates"
+        },
+        {
+          "info": {
+            "name": "Get template detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/jsonld/template/:tid",
+            "params": [
+              {
+                "name": "tid",
+                "value": "",
+                "type": "path",
+                "description": "template id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get template detail"
+        },
+        {
+          "info": {
+            "name": "Remove template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/jsonld/template/:tid/remove",
+            "params": [
+              {
+                "name": "tid",
+                "value": "",
+                "type": "path",
+                "description": "template id"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Remove template"
+        },
+        {
+          "info": {
+            "name": "Get user's JSON-LD templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/jsonld/templates",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the user's saved JSON-LD templates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

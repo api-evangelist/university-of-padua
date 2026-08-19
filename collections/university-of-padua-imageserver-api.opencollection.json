@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PHAIDRA datastream imageserver API",
+    "version": "3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "imageserver",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Proxy for the imageserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/imageserver",
+            "params": [
+              {
+                "name": "IIIF",
+                "value": "o:440180.tif/full/256,256/0/default.jpg",
+                "type": "query",
+                "description": "IIIF request"
+              }
+            ]
+          },
+          "docs": "Proxy for the [imageserver API](http://www.hexaplant.com/pixeldragon/3-access-images.html). This is necessary for the frontend. The images at the image server are hashed so that it's possible to restrict access to them. This method checks if the user (if credentials are provided) is authorized to access the image and if it is, it uses the configured secret to create the hash under which image server knows the image. It then accesses the image server proxying all the parameters and proxies back t"
+        },
+        {
+          "info": {
+            "name": "Let imageserver process multiple objects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/imageserver/process",
+            "params": [
+              {
+                "name": "skipexisting",
+                "value": "",
+                "type": "query",
+                "description": "Value 1 to skip creating a job for this pid if a job for a pid already exists."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "pids",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "If an image server is configured, creates a job in the image server's database to process all the pids from the provided list. Needs admin credentials."
+        },
+        {
+          "info": {
+            "name": "Post to (re-)process one pid on imageserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://phaidra.unipd.it/api/imageserver/:pid/process",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              },
+              {
+                "name": "skipexisting",
+                "value": "",
+                "type": "query",
+                "description": "Value 1 to skip creating a job for this pid if a job for a pid already exists."
+              },
+              {
+                "name": "ds",
+                "value": "",
+                "type": "query",
+                "description": "By default, OCTETS is processed. This is a possibility to define another datastream."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Post an object to be processed to the imageserver. Needs admin credentials"
+        },
+        {
+          "info": {
+            "name": "Get imageserver job status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://phaidra.unipd.it/api/imageserver/:pid/status",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "object pid"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "If imageserver is configured, returns the record from the imageserver job database for the pid specified. Read rights are needed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

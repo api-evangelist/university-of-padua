@@ -1,0 +1,2934 @@
+{
+  "item": [
+    {
+      "id": "d702f9eb-c85d-492d-82e9-44c102f78524",
+      "name": "object-basics",
+      "description": {
+        "content": "Most important requests you'll need to manage digital objects in PHAIDRA",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1fe3fcf8-f755-40b9-b87d-18b60695a1d5",
+          "name": "Creates an audio object",
+          "request": {
+            "name": "Creates an audio object",
+            "description": {
+              "content": "Creates a simple data object with internal content model cmodel:Audio. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "audio",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                  "type": "text",
+                  "description": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details"
+                },
+                {
+                  "key": "mimetype",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "mimetype is optional: if not provided, heuristics is used on server side"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c3fa3ec2-f36d-4216-b5a1-c8b5a21dfc60",
+              "name": "Audio object created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audio",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": 9761.906809858185\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba03c7c3-e11c-4e1c-914e-03637111e43f",
+              "name": "error creating object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "audio",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c2923ec-be7d-4555-871d-4f84553afb51",
+          "name": "Creates a collection",
+          "request": {
+            "name": "Creates a collection",
+            "description": {
+              "content": "Use to create collection object. The process is the same as for other simple objects (e.g. picture/create), just don't provide any file parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collection",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "metadata",
+                  "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]},\"members\":[{\"pid\":\"<string>\",\"pos\":\"<string>\"},{\"pid\":\"<string>\",\"pos\":\"<string>\"}]}}",
+                  "type": "text",
+                  "description": "a structure containing metadata; refer to the wiki (see above) for further details. You can send members - as in the example, or not, and add members later using either the collection/{pid}/members/add request, or the relationships requests with the hasMember relationship."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "791daa3c-5357-45da-bb98-276e5aecdc62",
+              "name": "collection created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collection",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the wiki (see above) for further details. You can send members - as in the example, or not, and add members later using either the collection/{pid}/members/add request, or the relationships requests with the hasMember relationship.",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]},\"members\":[{\"pid\":\"<string>\",\"pos\":\"<string>\"},{\"pid\":\"<string>\",\"pos\":\"<string>\"}]}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee7e8057-25b4-4e07-a530-f7a9ac17984a",
+          "name": "Creates a container object",
+          "request": {
+            "name": "Creates a container object",
+            "description": {
+              "content": "See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-container) for an example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "container",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "member_bar",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "member_foo",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "<object>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56ab0ccc-969c-4270-8ff8-81306fa16605",
+              "name": "Container created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "container",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "member_bar",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "member_foo",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"container\":{\"dce:title\":[{\"@type\":\"bf:Title\",\"bf:mainTitle\":[{\"@language\":\"eng\",\"@value\":\"Example container title\"}]}],\"dcterms:type\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8MY0-BQDQ\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"container\"}]}],\"edm:hasType\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8KGA-CH97\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"interview\"}]}]},\"member_bar\":{\"dce:title\":[{\"@type\":\"bf:Title\",\"bf:mainTitle\":[{\"@language\":\"eng\",\"@value\":\"Member 'bar' title\"}]}],\"dcterms:type\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8YB5-1M0J\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"sound\"}]}],\"ebucore:filename\":[\"test.wav\"],\"ebucore:hasMimeType\":[\"audio/wav\"],\"edm:rights\":[\"http://rightsstatements.org/vocab/InC/1.0/\"],\"schema:duration\":[\"PTOH1M30S\"]},\"member_foo\":{\"dce:title\":[{\"@type\":\"bf:Title\",\"bf:mainTitle\":[{\"@language\":\"deu\",\"@value\":\"member 'foo' title\"}]}],\"dcterms:type\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8YB5-1M0J\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"sound\"}]}],\"ebucore:filename\":[\"test2.wav\"],\"ebucore:hasMimeType\":[\"audio/wav\"],\"edm:rights\":[\"http://rightsstatements.org/vocab/InC/1.0/\"],\"schema:duration\":[\"PTOH1M30S\"]}}}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": 9761.906809858185\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab397c92-7c3b-496f-a681-c3d95ebab7a3",
+              "name": "error creating container",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "container",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "member_bar",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "member_foo",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"container\":{\"dce:title\":[{\"@type\":\"bf:Title\",\"bf:mainTitle\":[{\"@language\":\"eng\",\"@value\":\"Example container title\"}]}],\"dcterms:type\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8MY0-BQDQ\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"container\"}]}],\"edm:hasType\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8KGA-CH97\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"interview\"}]}]},\"member_bar\":{\"dce:title\":[{\"@type\":\"bf:Title\",\"bf:mainTitle\":[{\"@language\":\"eng\",\"@value\":\"Member 'bar' title\"}]}],\"dcterms:type\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8YB5-1M0J\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"sound\"}]}],\"ebucore:filename\":[\"test.wav\"],\"ebucore:hasMimeType\":[\"audio/wav\"],\"edm:rights\":[\"http://rightsstatements.org/vocab/InC/1.0/\"],\"schema:duration\":[\"PTOH1M30S\"]},\"member_foo\":{\"dce:title\":[{\"@type\":\"bf:Title\",\"bf:mainTitle\":[{\"@language\":\"deu\",\"@value\":\"member 'foo' title\"}]}],\"dcterms:type\":[{\"@type\":\"skos:Concept\",\"skos:exactMatch\":[\"https://pid.phaidra.org/vocabulary/8YB5-1M0J\"],\"skos:prefLabel\":[{\"@language\":\"eng\",\"@value\":\"sound\"}]}],\"ebucore:filename\":[\"test2.wav\"],\"ebucore:hasMimeType\":[\"audio/wav\"],\"edm:rights\":[\"http://rightsstatements.org/vocab/InC/1.0/\"],\"schema:duration\":[\"PTOH1M30S\"]}}}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "439fc343-aa84-49f7-a3db-d9cf28d35583",
+          "name": "Creates a document object",
+          "request": {
+            "name": "Creates a document object",
+            "description": {
+              "content": "Creates a simple data object with internal content model cmodel:PDFDocument. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                  "type": "text",
+                  "description": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details"
+                },
+                {
+                  "key": "mimetype",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "mimetype is optional: if not provided, heuristics is used on server side"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0adbd1b7-b956-4852-929e-a792c669c681",
+              "name": "Document object created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": 9761.906809858185\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8856714f-72d8-4308-985c-9aa74e958c78",
+              "name": "error creating object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3da0c37-19e3-4807-86b0-5809761d3807",
+          "name": "Delete object.",
+          "request": {
+            "name": "Delete object.",
+            "description": {
+              "content": "This method permanently deletes the object from the repository. In case Fedora 6+ is the backend repository, a tombstone will be created in object's place.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "935c2057-eecb-4c34-a1d9-6794a6761d98",
+              "name": "status of delete request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"status\": 5276\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82f4a36c-bc57-4011-9a69-09b4992b0602",
+          "name": "Download object's data",
+          "request": {
+            "name": "Download object's data",
+            "description": {
+              "content": "Receive data as Content-Disposition: attachment. Use this link if you want the browser to download a file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e683a679-5bfd-456a-a3f9-353d3e774819",
+              "name": "Object's data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f2fba85-c71b-41cb-af0d-bacba24b49cf",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa760726-be48-41c0-8fa0-bf1c877df459",
+          "name": "Get object's data",
+          "request": {
+            "name": "Get object's data",
+            "description": {
+              "content": "Receive data as a stream. Use this link if you want to embed the data, e.g. in a player/viewer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a14dface-1a6f-421f-9eb3-bb507a6cd606",
+              "name": "Object's data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb9db5c4-42d8-4a30-b465-65373055ab2d",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fe7829c-7a57-4212-8a48-1d0a0195d279",
+          "name": "Re-indexes object.",
+          "request": {
+            "name": "Re-indexes object.",
+            "description": {
+              "content": "Triggers the update of the object's index (Solr). Need admin authentication",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "index"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<boolean>",
+                  "key": "ignorestatus",
+                  "description": "ignore object status, i.e. include inactive objects"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<boolean>",
+                  "key": "norecursion",
+                  "description": "skip re-indexing of the parent object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ab7c00e5-0501-46b5-b83e-4687d0d9b7a1",
+              "name": "object indexed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<boolean>",
+                      "key": "ignorestatus",
+                      "description": "ignore object status, i.e. include inactive objects"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<boolean>",
+                      "key": "norecursion",
+                      "description": "skip re-indexing of the parent object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a93fbd56-2577-4468-9b22-7c45c0041b9a",
+              "name": "Failed to fetch data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<boolean>",
+                      "key": "ignorestatus",
+                      "description": "ignore object status, i.e. include inactive objects"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<boolean>",
+                      "key": "norecursion",
+                      "description": "skip re-indexing of the parent object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "170cad09-b51b-4825-9ad4-00f88059be6a",
+          "name": "Get object info",
+          "request": {
+            "name": "Get object info",
+            "description": {
+              "content": "This method returns metadata (UWMETADATA, MODS, JSON-LD, etc., depending on the metadata datastream), as well as indexed data about the object and its related objects. It's the primary method of getting as much information about an object as possible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e817529e-6967-4548-9202-a28e9fc7347a",
+              "name": "object info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"info\": {\n    \"_updated\": [\n      \"string\",\n      \"string\"\n    ],\n    \"_version_\": 1253.5255246319855,\n    \"alternativeformats\": [\n      \"string\",\n      \"string\"\n    ],\n    \"alternativeversions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"bbox\": [\n      \"string\",\n      \"string\"\n    ],\n    \"bib_published\": [\n      \"string\",\n      \"string\"\n    ],\n    \"bib_publisher\": [\n      \"string\",\n      \"string\"\n    ],\n    \"bib_publisherlocation\": [\n      \"string\",\n      \"string\"\n    ],\n    \"bib_roles_pers_aut\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cmodel\": \"string\",\n    \"created\": \"string\",\n    \"datastreams\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_creator\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_date\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_description_\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_identifier\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_language\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_license\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_publisher\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_relation\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_rights\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_subject\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_subject_\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dc_title\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dshash\": {},\n    \"ispartof\": [\n      \"string\",\n      \"string\"\n    ],\n    \"latlon\": \"string\",\n    \"metadata\": {\n      \"geo\": {\n        \"metadata\": {\n          \"geo\": {\n            \"kml\": {\n              \"document\": {\n                \"placemark\": [\n                  {\n                    \"description\": \"Json example of a point geo datastream\",\n                    \"name\": \"Name of geo datastream\",\n                    \"point\": {\n                      \"coordinates\": {\n                        \"latitude\": \"41.6902784095934\",\n                        \"longitude\": \"44.8112504748688\"\n                      }\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        }\n      },\n      \"mods\": {\n        \"metadata\": {\n          \"mods\": [\n            {\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"children\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"extensible\": 854.4942264837574,\n              \"input_type\": \"string\",\n              \"label\": \"string\",\n              \"ui_value\": \"string\",\n              \"xmlname\": \"string\"\n            },\n            {\n              \"attributes\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"children\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"extensible\": 8117.812650740463,\n              \"input_type\": \"string\",\n              \"label\": \"string\",\n              \"ui_value\": \"string\",\n              \"xmlname\": \"string\"\n            }\n          ]\n        }\n      }\n    },\n    \"metatags\": {\n      \"DC.identifier\": \"string\",\n      \"DC.rights\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"status\": 3914.4152046539284\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff57ff0c-669b-412a-90cf-79004635e1fa",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d020ee40-26e3-45ba-a26f-325b56b6ed84",
+          "name": "Edit object's metadata",
+          "request": {
+            "name": "Edit object's metadata",
+            "description": {
+              "content": "Supported elements (in JSON format) are: json-ld, json-ld-private, mods, uwmetadata, rights, geo, members, membersorder and relationships.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "metadata",
+                  "value": "{\"value\":\"<Error: Schema not found>\"}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "81187081-1e27-48c6-9ed2-152bbd1898fd",
+              "name": "metadata added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"value\":\"<Error: Schema not found>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": 9761.906809858185\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9abff5bc-548f-4cb1-acef-cfa96ec91329",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"value\":\"<Error: Schema not found>\"}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c17d6a2e-9dc1-4425-9653-cfae3bca46f3",
+          "name": "Get preview page",
+          "request": {
+            "name": "Get preview page",
+            "description": {
+              "content": "Retrieves the preview page, for example for embedding in an iframe. Image viewer for supported image formats, PDF viewer for PDFs, audio/video player for media, etc.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "preview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ef5f8be5-7fbc-4dde-bb51-2108c3a1293e",
+              "name": "html page preview",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3173366-4a9d-4a75-8d95-edda51438a2f",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8e05f16-5411-4c99-9fad-ec31131187d7",
+          "name": "Retrieves the object access restrictions. This method expects authentication.",
+          "request": {
+            "name": "Retrieves the object access restrictions. This method expects authentication.",
+            "description": {},
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "rights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64eac3d8-d094-48f3-9a24-f8f49b35088e",
+              "name": "Access rights",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"rights\": {\n    \"metadata\": {\n      \"username\": [\n        {\n          \"expires\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"expires\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    }\n  },\n  \"status\": 3806.5481077154805\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55437923-4fe7-4d84-99db-8e276336e358",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7c8d2ca-3fc5-4baf-92e6-bd40c031f004",
+          "name": "Saves the object's access restrictions",
+          "request": {
+            "name": "Saves the object's access restrictions",
+            "description": {
+              "content": "Leave the rights empty (rights:{}) to remove restrictions from object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "rights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "metadata",
+                  "value": "{\"rights\":{\"username\":[{\"expires\":\"<string>\",\"value\":\"<string>\"},{\"expires\":\"<string>\",\"value\":\"<string>\"}]}}",
+                  "type": "text",
+                  "description": "Example of user rights."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "368ae4fb-2342-4157-b00a-8cc30d2c922f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "rights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Example of user rights.",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"rights\":{\"username\":[{\"expires\":\"2016-08-25T14:31:34Z\",\"value\":\"user123\"},{\"expires\":\"2016-08-25T14:31:34Z\",\"value\":\"user123\"}]}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3def4833-7de2-43da-a595-5ef8dbb83b0f",
+          "name": "Get the thumbnail image",
+          "request": {
+            "name": "Get the thumbnail image",
+            "description": {},
+            "url": {
+              "path": [
+                "object",
+                ":pid",
+                "thumbnail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pid",
+                  "description": "object pid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "894f2963-318e-407e-9d79-89a649bc823b",
+              "name": "Thumbnail image in jpeg or png format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed614752-58ed-4e61-8dff-84fa3d2d60b7",
+              "name": "object has not been found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "object",
+                    ":pid",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pid",
+                      "description": "object pid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44a6ae4e-b3b0-4593-a30f-0f34c5849959",
+          "name": "Creates a picture object",
+          "request": {
+            "name": "Creates a picture object",
+            "description": {
+              "content": "Creates a simple data object with internal content model cmodel:Picture. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "picture",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                  "type": "text",
+                  "description": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details"
+                },
+                {
+                  "key": "mimetype",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "mimetype is optional: if not provided, heuristics is used on server side"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53e8385c-19af-40c8-a6a4-d7696fd547f1",
+          "name": "Creates a data object",
+          "request": {
+            "name": "Creates a data object",
+            "description": {
+              "content": "Creates a simple data object with internal content model cmodel:Asset. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unknown",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                  "type": "text",
+                  "description": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details"
+                },
+                {
+                  "key": "mimetype",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "mimetype is optional: if not provided, heuristics is used on server side"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "58935a54-dcd2-40a1-b57b-41916dbcba75",
+              "name": "Data object created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unknown",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": 9761.906809858185\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9afc6f62-7d08-4c1d-8f0e-d95cff168893",
+              "name": "error creating object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unknown",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b2048b2-8511-44b4-a8a6-e62aefd7a47d",
+          "name": "Creates a video object",
+          "request": {
+            "name": "Creates a video object",
+            "description": {
+              "content": "Creates a simple data object with internal content model cmodel:Video. See [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for an example.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "video",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                },
+                {
+                  "key": "metadata",
+                  "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                  "type": "text",
+                  "description": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details"
+                },
+                {
+                  "key": "mimetype",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "mimetype is optional: if not provided, heuristics is used on server side"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "882d0209-e731-422f-a5c7-ac64b4d38ebe",
+              "name": "Video object created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "video",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"pid\": \"string\",\n  \"status\": 9761.906809858185\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b00aad8-1839-4e95-b082-dd782d3d950e",
+              "name": "error creating object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "video",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": {
+                        "content": "a structure containing metadata; refer to the [wiki](https://github.com/phaidra/phaidra-api/wiki/Creating-a-simple-object) for further details",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "{\"metadata\":{\"json-ld\":{\"bf:note\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:subject\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dce:title\":[{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"bf:mainTitle\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"dcterms:language\":[\"<string>\",\"<string>\"],\"dcterms:type\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"ebucore:filename\":[\"<string>\",\"<string>\"],\"ebucore:hasMimeType\":[\"<string>\",\"<string>\"],\"edm:hasType\":[{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:exactMatch\":[\"<string>\",\"<string>\"],\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}],\"edm:rights\":[\"<string>\",\"<string>\"],\"role:aut\":[{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"schema:familyName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}],\"schema:givenName\":[{\"@value\":\"<string>\"},{\"@value\":\"<string>\"}]}],\"vra:hasInscription\":[{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]},{\"@type\":\"<string>\",\"skos:prefLabel\":[{\"@language\":\"<string>\",\"@value\":\"<string>\"},{\"@language\":\"<string>\",\"@value\":\"<string>\"}]}]}}}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "mimetype is optional: if not provided, heuristics is used on server side",
+                        "type": "text/plain"
+                      },
+                      "key": "mimetype",
+                      "value": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://phaidra.unipd.it/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a32db8f0-4842-493c-916d-7374ae4d6195",
+    "name": "PHAIDRA datastream object-basics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of the PHAIDRA API.",
+      "type": "text/plain"
+    }
+  }
+}
