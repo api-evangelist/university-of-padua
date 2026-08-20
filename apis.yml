@@ -53,6 +53,11 @@ apis:
   baseURL: https://phaidra.cab.unipd.it/api/imageserver
   tags:
   - IIIF
+  - Image
+  - Library
+  - Digital Collections
+  tags_raw:
+  - IIIF
   - Images
   - Library
   - Digital Collections
@@ -140,6 +145,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Datastream
+  tags_raw:
   - datastream
   properties:
   - type: OpenAPI
@@ -160,6 +167,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Directory
+  tags_raw:
   - directory
   properties:
   - type: OpenAPI
@@ -200,6 +209,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - List
+  tags_raw:
   - lists
   properties:
   - type: OpenAPI
@@ -219,7 +230,8 @@ apis:
   description: The misc API from University of Padua — 7 operation(s) for misc.
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
-  tags:
+  tags: []
+  tags_raw:
   - misc
   properties:
   - type: OpenAPI
@@ -240,6 +252,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - OAI-PMH
+  tags_raw:
   - oai-pmh
   properties:
   - type: OpenAPI
@@ -300,6 +314,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Relationships
+  tags_raw:
   - relationships
   properties:
   - type: OpenAPI
@@ -320,6 +336,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
@@ -340,6 +358,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Session
+  tags_raw:
   - session
   properties:
   - type: OpenAPI
@@ -360,6 +380,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Stats
+  tags_raw:
   - stats
   properties:
   - type: OpenAPI
@@ -380,6 +402,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Templates
+  tags_raw:
   - templates
   properties:
   - type: OpenAPI
@@ -400,6 +424,8 @@ apis:
   humanURL: https://phaidra.cab.unipd.it/
   baseURL: https://phaidra.cab.unipd.it/api
   tags:
+  - Vocabularies
+  tags_raw:
   - vocabularies
   properties:
   - type: OpenAPI
