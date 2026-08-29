@@ -14,6 +14,18 @@ description: >-
   eduGAIN. There is no central institutional GitHub organization for the
   university as a whole; public code lives in individual lab and department orgs.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
