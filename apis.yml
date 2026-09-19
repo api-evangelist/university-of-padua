@@ -189,6 +189,12 @@ apis:
   - Identity Federation
   - SAML
   - Shibboleth
+  - SSO
+  - eduGAIN
+  tags_raw:
+  - Identity Federation
+  - SAML
+  - Shibboleth
   - Single Sign-On
   - eduGAIN
   properties:
