@@ -1,0 +1,86 @@
+generated: '2026-08-30'
+method: probed
+source: live probes of University of Padua hosts (OAI-PMH verb=Identify / verb=ListMetadataFormats,
+  Shibboleth IdP metadata endpoint, PHAIDRA API surface) on 2026-08-30
+note: >-
+  Conformance targets are the Kin Score `education` regime standards. Only standards with a
+  live, machine-readable artifact on a University of Padua host are recorded as conforming.
+  Nothing here is inferred from a prose claim on a web page. Standards in the regime that
+  produced no evidence are recorded as conforms:false with the probe that failed, so the
+  absence is measured rather than assumed.
+standards:
+- id: oai-pmh
+  conforms: true
+  evidence: >-
+    Four live OAI-PMH 2.0 endpoints on unipd.it hosts, each answering verb=Identify with
+    HTTP 200 and a valid OAI-PMH envelope:
+    https://www.research.unipd.it/oai/request (repositoryName "IRIS - UNIPD - prod",
+    adminEmail catalogo.pubblicazioni@unipd.it, earliestDatestamp 2011-11-02);
+    https://researchdata.cab.unipd.it/cgi/oai2 (repositoryName "Research Data Unipd",
+    adminEmail researchdata@cab.unipd.it, earliestDatestamp 2019-01-08);
+    https://thesis.unipd.it/oai/request (Padua Thesis and Dissertations Archive);
+    https://phaidra.unipd.it/api/oai (repositoryName "phaidra.unipd.it",
+    adminEmail phaidra@cab.unipd.it). All four are institution-hosted.
+- id: datacite
+  conforms: true
+  evidence: >-
+    verb=ListMetadataFormats returns a DataCite metadata prefix on two institution-hosted
+    repositories: https://researchdata.cab.unipd.it/cgi/oai2 offers `oai_datacite`
+    (alongside didl, mets, oai_bibl, oai_dc, rdf, uketd_dc) and
+    https://thesis.unipd.it/oai/request offers `datacite` (alongside didl, ore, oai_dc).
+- id: shibboleth
+  conforms: true
+  evidence: >-
+    https://shibidp.cca.unipd.it/idp/shibboleth returns HTTP 200 application/xml (17,853 bytes),
+    a Shibboleth Identity Provider metadata document carrying the
+    urn:mace:shibboleth:metadata:1.0 namespace, entityID
+    "https://shibidp.cca.unipd.it/idp/shibboleth" and OrganizationName
+    "Universita degli Studi di Padova" / "University of Padova". The institution documents its
+    IDEM GARR / eduGAIN participation at https://www.unipd.it/en/idem (HTTP 200).
+- id: saml
+  conforms: true
+  evidence: >-
+    The same metadata document is SAML 2.0 (urn:oasis:names:tc:SAML:2.0:metadata) and publishes
+    SingleSignOnService endpoints for HTTP-POST, HTTP-POST-SimpleSign and HTTP-Redirect bindings
+    at https://shibidp.cca.unipd.it/idp/profile/SAML2/{POST,POST-SimpleSign,Redirect}/SSO.
+    Service Provider registration into the federation is documented at
+    https://asit.unipd.it/single-sign-informazioni-tecniche-service-provider (HTTP 200) and
+    operated at https://registrazionisp.ict.unipd.it/ (HTTP 200).
+- id: orcid
+  conforms: false
+  evidence: >-
+    No machine-readable ORCID surface was found. https://www.research.unipd.it/browse?type=orcid
+    returns HTTP 400 and no ORCID identifier appears in the IRIS OAI-PMH oai_dc output. The IRIS
+    platform supports ORCID integration, but Padua publishes no probe-verifiable evidence of it,
+    so no conformance is claimed.
+- id: crossref
+  conforms: false
+  evidence: >-
+    No Crossref metadata prefix is offered by any of the four OAI-PMH endpoints
+    (verb=ListMetadataFormats returns no crossref/unixref prefix on any of them) and no Crossref
+    deposit or query surface was found on a unipd.it host.
+- id: scim
+  conforms: false
+  evidence: >-
+    No SCIM 2.0 endpoint is publicly reachable. Identity provisioning at Padua runs behind the
+    internal IUNGO integration infrastructure and the GovWay API gateway described at
+    https://asit.unipd.it/servizi/sviluppo-software/integrazioni (HTTP 200), which publishes no
+    public endpoints or documentation.
+- id: lti
+  conforms: false
+  evidence: >-
+    No LTI tool/platform registration or JWKS surface was found on a unipd.it host. Moodle
+    e-learning instances exist per school (e.g. ssu.elearning.unipd.it) but publish no LTI
+    configuration document publicly.
+- id: oneroster
+  conforms: false
+  evidence: No OneRoster endpoint or CSV bundle was found on any unipd.it host.
+- id: ed-fi
+  conforms: false
+  evidence: Ed-Fi is a US K-12/state-education data standard; no Ed-Fi surface exists at Padua.
+- id: caliper
+  conforms: false
+  evidence: No Caliper Analytics event store or sensor endpoint was found on any unipd.it host.
+- id: qti
+  conforms: false
+  evidence: No QTI assessment interchange surface was found on any unipd.it host.

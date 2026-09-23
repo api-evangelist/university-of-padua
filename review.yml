@@ -3,8 +3,50 @@ name: University of Padua
 description: University of Padua public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/university-of-padua/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-reviewed under the API Evangelist university pipeline, whose first question is not
+      "is there a spec" but "who operates the thing the spec describes". The June 2026 review
+      credited the University of Padua with fourteen OpenAPI definitions. Every one of them is
+      the contract of PHAIDRA, an open-source repository platform developed at the University
+      of Vienna and shipped identically by other PHAIDRA institutions; phaidra.unipd.it says so
+      in its own page source. Those fourteen specs and the 43 artifacts derived from them were
+      removed, and the PHAIDRA deployment is now recorded as a single tenant-style entry — the
+      data and the objects are Padua's, the contract is not. What survives is real and was
+      probed live: four institution-hosted OAI-PMH 2.0 endpoints (IRIS UNIPD, Research Data
+      Unipd, the theses archive, PHAIDRA) and a Shibboleth Identity Provider publishing SAML 2.0
+      metadata into IDEM GARR and eduGAIN, which is the most complete machine-readable artifact
+      the institution publishes. Two corrections to the June profile: the Padua@Research
+      OAI-PMH endpoint is dead and was removed, and the theses archive endpoint was missed
+      entirely and has been added. Padua publishes no institution-authored API contract, no
+      developer portal, and no open data portal — the one announced in December 2024 has not
+      launched. Its "API first" programme is internal, behind IUNGO and a GovWay gateway,
+      reachable only by helpdesk ticket. The lower rating is the correction, not a decline.
+    endpoints:
+      - url: https://shibidp.cca.unipd.it/idp/shibboleth
+        status: 200
+        note: SAML 2.0 / Shibboleth IdP metadata, 17,853 bytes. Institution-operated.
+      - url: https://www.research.unipd.it/oai/request?verb=Identify
+        status: 200
+        note: OAI-PMH 2.0, repositoryName "IRIS - UNIPD - prod".
+      - url: https://researchdata.cab.unipd.it/cgi/oai2?verb=Identify
+        status: 200
+        note: OAI-PMH 2.0, "Research Data Unipd"; oai_datacite offered. TLS hostname mismatch.
+      - url: https://thesis.unipd.it/oai/request?verb=Identify
+        status: 200
+        note: OAI-PMH 2.0 for the theses archive; datacite offered. Newly found.
+      - url: https://phaidra.unipd.it/api/openapi/json
+        status: 200
+        note: PHAIDRA product contract, 180,319 bytes. Not saved under this slug.
+      - url: https://paduaresearch.cab.unipd.it/cgi/oai2?verb=Identify
+        status: 404
+        note: Dead. Host now redirects to www.research.unipd.it. Removed from apis[].
+      - url: https://dati.unipd.it/
+        status: 0
+        note: Does not resolve. No open data portal has launched.
   - date: '2026-06-03'
     rating: 3
     summary: >-
