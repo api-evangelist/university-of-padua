@@ -2,14 +2,13 @@
   "repo": "university-of-padua",
   "feeds": [
     {
-      "source": "https://www.unipd.it/en",
+      "source": "https://www.unipd.it/en/news",
       "feed_url": "https://www.unipd.it/en/news",
-      "title": "University of Padua News",
+      "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-10-03T12:15:37Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
